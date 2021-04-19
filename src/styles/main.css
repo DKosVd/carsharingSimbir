@@ -1,0 +1,129 @@
+.main {
+    flex: 1 1 47.7%;
+}
+
+
+
+.main-header__menu {
+    display: none;
+}
+
+@media (max-width: 767.88px) {
+    .main-header__menu {
+        display: block;
+    }
+}
+
+
+
+
+.main-full {
+    margin: 32px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 1439.88px) {
+    .main-full  {
+        margin: 32px 32px;
+    }
+}
+
+.main__wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    height: 100%; 
+}
+
+.main-header {
+    display: flex;
+}
+
+.main-header__menu {
+    flex: 0 1 29%;
+}
+
+.main-content {
+    min-width: 486px;
+    min-height: 200px;
+}
+
+.main-content__title {
+    margin: 20px 0;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 70px;
+    line-height: 65.63px;
+}
+
+.main-content__text {
+    font-family: 'Roboto light';
+    font-size: 26px;
+    line-height: 30.47px;
+    font-weight: 300;
+    color: var(--gray-bold);
+}
+
+@media (max-width: 767.88px) {
+    .main-content {
+        min-width: 122px;
+    }
+
+
+    .main-full {
+        margin: 16px 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        max-width: 100%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 424.88px) {
+
+    .main-content__title {
+        margin: 10px 0;
+        font-family: 'Roboto';
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 32px;
+    }
+
+    .main-content__text {
+        font-family: 'Roboto light';
+        font-size: 18px;
+        line-height: 18px;
+        font-weight: 300;
+        color: var(--gray-bold);
+    } 
+
+    .main-content__btn {
+        width: 100% !important;
+    }
+
+  
+}
+
+
+.main-content__title_car {
+    color: var(--main-black);
+}
+
+.main-content__title_name {
+    color: var(--main-color);
+}
+
+
+
+.main-content__text_layout {
+    margin: 44px 0px 66px 0px;
+}
+
+
+
+
