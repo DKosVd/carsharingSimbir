@@ -1,0 +1,12 @@
+.order {
+    flex: 1 1 94%;
+}
+
+
+.order-container {
+    margin: 36px auto 0px auto;
+}
+
+.order-main {
+    display: flex;
+}

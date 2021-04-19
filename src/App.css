@@ -9,8 +9,25 @@
   --gray-light: rgba(238, 238, 238, 1);
 }
 
+*{
+  box-sizing:border-box;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
+}
+
+
+.container {
+  margin: 0 auto;
+  max-width: 1253px;
+  /* min-height: 613px; */
+}
+
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 button {
