@@ -18,10 +18,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+.underline {
+  border: none;
+  appearance: none;
+  min-width: 224px;
+  border-bottom: 1px solid var(--gray-bold);
+  background: none;
+} 
+
+
+
 .container {
   margin: 0 auto;
   max-width: 1253px;
-  /* min-height: 613px; */
 }
 
 .wrapper {

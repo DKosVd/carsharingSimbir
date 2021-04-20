@@ -9,4 +9,75 @@
 
 .order-main {
     display: flex;
+    min-height: 100%;
+}
+
+.order-form__elem_layout {
+    display: flex;
+    justify-content: space-between;
+}
+
+.optional-wrapper {
+    max-width: 322px;
+    position: relative;
+}
+
+.select-close::after {
+    content: '\d7';
+    position: absolute;
+    right: 3px;
+    top: 20%;
+    line-height: 10px;
+
+}
+
+.optional-wrapper > select {}
+
+.order-form__elem_layout > label {
+    flex: 1 1;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+}
+
+.order-form__elem_ml {
+    flex: 1 1;
+    margin: 0px 0px 0px 8px;
+}
+
+.order__chose__city {
+    flex: 1 1 59.46%;
+    /* min-height: 100vh; */
+}
+
+.order__yours__order {
+    flex: 1 1 25.53%;
+    min-height: 100%;
+}
+
+.order__empty {
+    flex: 1 1 14.48%;
+    min-height: 100%;
+    border-right: 1px solid var(--gray-light);
+}
+
+.vertical-line {
+    border: 1px solid var(--gray-light);
+}
+
+.order__city__img {
+    min-width: 100%;
+    min-height: 352px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid black;
+}
+
+.order__city__img img {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
