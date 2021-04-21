@@ -55,8 +55,22 @@ ul {
   line-height: 21.09px;
 }
 
-.btn:hover {
+.btn:hover, .btn:focus {
   cursor: pointer;
+  background: linear-gradient(90deg, #0B934A 2.61%, #026E47 112.6%);
+}
+
+.btn:active {
+  background: linear-gradient(90deg, #076432 2.61%, #013C27 112.6%);
+}
+
+.btn:visited {
+  background-color: red;
+}
+
+.btn:disabled,
+.btn[disabled] {
+  background: var(--gray-light);
 }
 
 

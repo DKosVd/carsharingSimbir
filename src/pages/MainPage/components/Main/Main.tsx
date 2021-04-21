@@ -24,7 +24,7 @@ export function Main() {
                             <h1 className="main-content__title main-content__title_car">Каршеринг</h1>
                             <h1 className="main-content__title main-content__title_name">Need for drive</h1>
                             <p className="main-content__text main-content__text_layout">Поминутная аренда авто твоего города</p>
-                            <button className="main-content__btn btn  btn-book ">Забронировать</button>
+                            <button className="main-content__btn btn  btn-book" tabIndex={1}>Забронировать</button>
                         </div>
                         
                         <Footer />
