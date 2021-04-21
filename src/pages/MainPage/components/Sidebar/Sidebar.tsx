@@ -12,7 +12,7 @@ interface ISideBarProps {
 }
 
 const Sidebar: React.FC<ISideBarProps> = ({open, setOpen}: ISideBarProps) => {
-
+    const [toggleLang, setToggleLang] = React.useState<boolean>(false)
 
     return (
         <>
@@ -23,8 +23,8 @@ const Sidebar: React.FC<ISideBarProps> = ({open, setOpen}: ISideBarProps) => {
                             <Menu height={'32px'} width={'32px'} color={"white"} />
                         </div>
                         <div className="sidebar__lang">
-                            <button className="sidebar__lang_elem">
-                                Eng
+                            <button className="sidebar__lang_elem" onClick={() => setToggleLang(!toggleLang)}>
+                                {toggleLang ? <span>Рус</span> : <span>Eng</span>}
                         </button>
                         </div>
                     </div>
@@ -35,9 +35,9 @@ const Sidebar: React.FC<ISideBarProps> = ({open, setOpen}: ISideBarProps) => {
                     <div className="sidebar-menu__control">
                         <span className="sidebar-menu__close" onClick={() => setOpen(!open)}><Close color={"white"} height={'32px'} width={'32px'} /></span>
                         <div className="sidebar__lang sidebar__lang__layout">
-                            <span className="sidebar__lang_elem">
-                                Eng
-                            </span>
+                        <button className="sidebar__lang_elem" onClick={() => setToggleLang(!toggleLang)}>
+                                {toggleLang ? <span>Рус</span> : <span>Eng</span>}
+                        </button>
                         </div>
                     </div>
                     <div className="sidebar-menu__main">
