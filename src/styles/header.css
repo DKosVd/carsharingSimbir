@@ -40,7 +40,7 @@
 
 .header__content__city {
     color: var(--gray-bold);
-    font-family: 'Roboto light';
+    font-family: 'Roboto';
     font-weight: 400;
     font-size: 14px;
     line-height: 16.41px;
@@ -55,7 +55,7 @@
     cursor: pointer;
 }
 
-@media (max-width: 424.88px) {
+@media (max-width: 767.88px) {
     .header__content__location {
         min-width: 100%;
         justify-content: flex-end;

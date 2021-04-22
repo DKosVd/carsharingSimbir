@@ -61,7 +61,7 @@
 }
 
 .main-content__text {
-    font-family: 'Roboto light';
+    font-family: 'Roboto';
     font-size: 26px;
     line-height: 30.47px;
     font-weight: 300;
@@ -84,7 +84,7 @@
     }
 }
 
-@media (max-width: 424.88px) {
+@media (max-width: 767.88px) {
 
     .main-content__title {
         margin: 10px 0;
@@ -95,7 +95,7 @@
     }
 
     .main-content__text {
-        font-family: 'Roboto light';
+        font-family: 'Roboto';
         font-size: 18px;
         line-height: 18px;
         font-weight: 300;
