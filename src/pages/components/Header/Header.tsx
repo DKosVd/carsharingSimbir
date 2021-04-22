@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../../styles/header.css'
+import '../../../styles/header.css'
 import { Map } from "@styled-icons/boxicons-regular/Map"
 
 export default function Header() {
