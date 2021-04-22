@@ -1,0 +1,6 @@
+.breadcrumbs {
+    margin: 36px 0px 0px 0px ;
+    min-height: 31px;
+    border-top: 1px solid var(--gray-light);
+    border-bottom: 1px solid var(--gray-light);
+}

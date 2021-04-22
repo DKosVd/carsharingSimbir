@@ -2,7 +2,7 @@ import { Facebook } from '@styled-icons/boxicons-logos/Facebook'
 import { Instagram } from '@styled-icons/boxicons-logos/Instagram'
 import { Telegram } from '@styled-icons/boxicons-logos/Telegram'
 import { Menu } from '@styled-icons/boxicons-regular/Menu'
-import '../../../../styles/sidebar.css'
+import '../../../styles/sidebar.css'
 import React from 'react'
 import { Close } from '@styled-icons/evil/Close'
 

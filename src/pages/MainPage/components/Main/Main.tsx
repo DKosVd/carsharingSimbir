@@ -1,9 +1,9 @@
 import React from 'react'
 import '../../../../styles/main.css'
 import { Footer } from '../Footer/Footer'
-import Header from '../Header/Header'
+import Header from '../../../components/Header/Header'
 import { Menu } from "@styled-icons/boxicons-regular/Menu"
-import Sidebar from '../Sidebar/Sidebar'
+import Sidebar from '../../../components/Sidebar/Sidebar'
 
 export function Main() {
     const [open, setOpen] = React.useState<boolean>(false)
