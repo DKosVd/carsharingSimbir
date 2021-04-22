@@ -3,6 +3,7 @@ import Sidebar from '../../../components/Sidebar/Sidebar'
 import '../../../../styles/order.css'
 import Header from '../../../components/Header/Header'
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs'
+import Map from '../Map/Map'
 
 export function Main() {
     const [open, setOpen] = React.useState<boolean>(false)
@@ -46,7 +47,7 @@ export function Main() {
                         <div className="order-city">
                             <p>Выбрать на карте</p>
                             <div className="order__city__img">
-
+                                <Map/>
                             </div>
                         </div>
                     </div>
