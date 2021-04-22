@@ -1,4 +1,4 @@
-import React from 'react'
+import {useState} from 'react'
 import '../../../../styles/main.css'
 import { Footer } from '../Footer/Footer'
 import Header from '../Header/Header'
@@ -6,7 +6,7 @@ import { Menu } from "@styled-icons/boxicons-regular/Menu"
 import Sidebar from '../Sidebar/Sidebar'
 
 export function Main() {
-    const [open, setOpen] = React.useState<boolean>(false)
+    const [open, setOpen] = useState<boolean>(false)
     return (
         <>
             <Sidebar open={open} setOpen={setOpen}/>

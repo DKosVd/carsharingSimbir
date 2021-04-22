@@ -6,7 +6,7 @@ interface ICurrentSlideProps {
     colorButton: string
 }
 
-export const CurrentSlide: React.FC<ICurrentSlideProps> = ({ title, text, colorButton }: ICurrentSlideProps) => {
+export const CurrentSlide = ({ title, text, colorButton }: ICurrentSlideProps) => {
     return (
         <article className="slider-content__main">
             <h1 className="slider-content__title">{title}</h1>

@@ -5,7 +5,7 @@
 
 .footer__content__name {
     color: var(--gray-bold);
-    font-family: 'Roboto light';
+    font-family: 'Roboto';
     font-weight: 400;
     font-size: 13px;
     line-height: 15.23px;
@@ -14,13 +14,13 @@
 
 .footer__content__number {
     color: var(--main-black);
-    font-family: 'Roboto light';
+    font-family: 'Roboto';
     font-weight: 400;
     font-size: 13px;
     line-height: 15.23px;
 }
 
-@media (max-width: 424.88px)  {
+@media (max-width: 767.88px)  {
     footer {
         min-width: 100%;
         min-height: 72px;
@@ -39,7 +39,7 @@
 
     .footer__content__name {
         color: #ffffff;
-        font-family: 'Roboto light';
+        font-family: 'Roboto';
         font-weight: 400;
         font-size: 13px;
         line-height: 15.23px;
@@ -48,7 +48,7 @@
 
     .footer__content__number {
         color: var(--main-color);
-        font-family: 'Roboto light';
+        font-family: 'Roboto';
         font-weight: 400;
         font-size: 13px;
         line-height: 15.23px;

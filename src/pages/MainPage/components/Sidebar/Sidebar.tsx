@@ -3,7 +3,7 @@ import { Instagram } from '@styled-icons/boxicons-logos/Instagram'
 import { Telegram } from '@styled-icons/boxicons-logos/Telegram'
 import { Menu } from '@styled-icons/boxicons-regular/Menu'
 import '../../../../styles/sidebar.css'
-import React from 'react'
+import {useState} from 'react'
 import { Close } from '@styled-icons/evil/Close'
 
 interface ISideBarProps {
@@ -11,8 +11,8 @@ interface ISideBarProps {
     setOpen: (elem: boolean) => void;
 }
 
-const Sidebar: React.FC<ISideBarProps> = ({open, setOpen}: ISideBarProps) => {
-    const [toggleLang, setToggleLang] = React.useState<boolean>(false)
+const Sidebar = ({open, setOpen}: ISideBarProps) => {
+    const [toggleLang, setToggleLang] = useState<boolean>(false)
 
     return (
         <>

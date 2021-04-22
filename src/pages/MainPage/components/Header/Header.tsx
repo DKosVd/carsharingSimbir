@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../../../styles/header.css'
-import { Location } from "@styled-icons/evil/Location"
+import { Map } from "@styled-icons/boxicons-regular/Map"
 
 export default function Header() {
     return (
@@ -8,7 +8,7 @@ export default function Header() {
             <div className="header__content">
                 <h3 className="header__content__title">Need for drive</h3>
                 <div className="header__content__location">
-                    <Location width={"15px"} height={"18px"} />
+                    <Map width={"32px"} height={"26px"} color={'#999999'}/>
                     <span className="header__content__city"> Ульяновск</span>
                 </div>
             </div>
