@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../../styles/breadcrumbs.css'
+import s from './breadcrumbs.module.css';
 
 export function Breadcrumbs() {
     const arr = [
@@ -10,9 +10,9 @@ export function Breadcrumbs() {
     ]
 
     return (
-        <div className="breadcrumbs">   
-            <div className="breadcrumbs__elems container">
-                {arr.map( el => <span className="breadcrumbs__elem">{el.title}</span>)}
+        <div className={s.breadcrumbs}>   
+            <div className={`${s.breadcrumbs__elems} container`}>
+                {arr.map( el => <span className={s.breadcrumbs__elem}>{el.title}</span>)}
             </div>
         </div>
     )

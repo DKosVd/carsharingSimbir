@@ -4,6 +4,7 @@ import '../../../../styles/order.css'
 import Header from '../../../components/Header/Header'
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs'
 import Map from '../Map/Map'
+import Order from '../Order/Order'
 
 export function Main() {
     const [open, setOpen] = React.useState<boolean>(false)
@@ -55,7 +56,7 @@ export function Main() {
 
                     </div>
                     <div className="order__yours__order">
-
+                            <Order/>
                     </div>
                 </div>
             </div>
