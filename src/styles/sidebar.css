@@ -81,6 +81,9 @@
 .sidebar-menu__elems {
     padding: 0px 0px 0px 32px;
     min-width: 552px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .sidebar-menu__elem {
@@ -198,6 +201,7 @@
         padding: 0;
         min-width: 0;
         margin: 0px 0px 0px 24px;
+        
     }
 
     .sidebar-menu__elem {

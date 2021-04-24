@@ -4,9 +4,14 @@ import { Footer } from '../Footer/Footer'
 import Header from '../../../components/Header/Header'
 import { Menu } from "@styled-icons/boxicons-regular/Menu"
 import Sidebar from '../../../components/Sidebar/Sidebar'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../../../store/store'
+
 
 export function Main() {
     const [open, setOpen] = useState<boolean>(false)
+    const text = useSelector( (state:RootState) => state.lang.text);
+
     return (
         <>
             <Sidebar open={open} setOpen={setOpen}/>
@@ -21,12 +26,11 @@ export function Main() {
                         <Header />
                         </div>
                         <div className="main-content">
-                            <h1 className="main-content__title main-content__title_car">Каршеринг</h1>
+                            <h1 className="main-content__title main-content__title_car">{text.title}</h1>
                             <h1 className="main-content__title main-content__title_name">Need for drive</h1>
-                            <p className="main-content__text main-content__text_layout">Поминутная аренда авто твоего города</p>
-                            <button className="main-content__btn btn  btn-book" tabIndex={1}>Забронировать</button>
+                            <p className="main-content__text main-content__text_layout">{text.subtitle}</p>
+                            <button className="main-content__btn btn  btn-book" tabIndex={1}>{text.btnBook}</button>
                         </div>
-                        
                         <Footer />
                     </div>
 

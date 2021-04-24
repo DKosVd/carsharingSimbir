@@ -1,13 +1,15 @@
 import React from 'react'
 import '../../../../styles/slider.css'
-import SliderElems from '../../../../mocks/sliderMock'
 import { CurrentSlide } from './CurrentSlide';
 import { ActiveDots } from './ActiveDots';
 import {ChevronLeft} from "@styled-icons/boxicons-regular/ChevronLeft";
 import {ChevronRight} from "@styled-icons/boxicons-regular/ChevronRight";
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../../store/store';
 
 export function Slider() {
     const [active, setActive] = React.useState<number>(0);
+    const SliderElems = useSelector( (state:RootState) => state.lang.text.sliderElems);
     const handlerChangeSlide = (e: React.MouseEvent<HTMLDivElement>) => {
         let currentIdx = Number(e.currentTarget.getAttribute('data-change'))
         if(active === 0 && currentIdx === -1) {

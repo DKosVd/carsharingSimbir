@@ -3,8 +3,11 @@ import { Instagram } from '@styled-icons/boxicons-logos/Instagram'
 import { Telegram } from '@styled-icons/boxicons-logos/Telegram'
 import { Menu } from '@styled-icons/boxicons-regular/Menu'
 import '../../../styles/sidebar.css'
-import {useState} from 'react'
+import React, {useState} from 'react'
 import { Close } from '@styled-icons/evil/Close'
+import { useDispatch, useSelector } from 'react-redux'
+import { ChangeLangAction } from '../../../store/actions/lang/lang'
+import { RootState } from '../../../store/store'
 
 interface ISideBarProps {
     open: boolean;
@@ -13,6 +16,15 @@ interface ISideBarProps {
 
 const Sidebar = ({open, setOpen}: ISideBarProps) => {
     const [toggleLang, setToggleLang] = useState<boolean>(false)
+    const dispatch = useDispatch();
+    const sidebar = useSelector( (state:RootState) => state.lang.text.sidebarFull);
+    const handleChangeLang = (e: React.MouseEvent) => {
+        setToggleLang(!toggleLang)
+        let text = e.target as HTMLSpanElement
+        if(text.textContent) {
+            dispatch(ChangeLangAction(text.textContent))
+        }
+    }
 
     return (
         <>
@@ -23,7 +35,7 @@ const Sidebar = ({open, setOpen}: ISideBarProps) => {
                             <Menu height={'32px'} width={'32px'} color={"white"} />
                         </div>
                         <div className="sidebar__lang">
-                            <button className="sidebar__lang_elem" onClick={() => setToggleLang(!toggleLang)}>
+                            <button className="sidebar__lang_elem" onClick={handleChangeLang}>
                                 {toggleLang ? <span>Рус</span> : <span>Eng</span>}
                         </button>
                         </div>
@@ -35,17 +47,17 @@ const Sidebar = ({open, setOpen}: ISideBarProps) => {
                     <div className="sidebar-menu__control">
                         <span className="sidebar-menu__close" onClick={() => setOpen(!open)}><Close color={"white"} height={'32px'} width={'32px'} /></span>
                         <div className="sidebar__lang sidebar__lang__layout">
-                        <button className="sidebar__lang_elem" onClick={() => setToggleLang(!toggleLang)}>
+                        <button className="sidebar__lang_elem" onClick={handleChangeLang}>
                                 {toggleLang ? <span>Рус</span> : <span>Eng</span>}
                         </button>
                         </div>
                     </div>
                     <div className="sidebar-menu__main">
                         <ul className="sidebar-menu__elems">
-                            <li className="sidebar-menu__elem">ПАРКОВКА</li>
-                            <li className="sidebar-menu__elem">СТРАХОВКА</li>
-                            <li className="sidebar-menu__elem">БЕНЗИН</li>
-                            <li className="sidebar-menu__elem">ОБСЛУЖИВАНИЕ</li>
+                            <li className="sidebar-menu__elem">{sidebar.park}</li>
+                            <li className="sidebar-menu__elem">{sidebar.insurance}</li>
+                            <li className="sidebar-menu__elem">{sidebar.gasoline}</li>
+                            <li className="sidebar-menu__elem">{sidebar.service}</li>
                         </ul>
                         <div className="sidebar-menu__logos">
                             <span className="sidebar-menu__logo"><Telegram color={"black"} height={'20px'} width={'20px'} /></span>

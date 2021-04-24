@@ -4,8 +4,8 @@ import translations from './translate/translate';
 
 
 const initialState: LangState = {
-    lang: 'Eng',
-    text: translations['Eng']
+    lang: 'Рус',
+    text: translations['Рус']
 }
 
 export const langReducer = (state = initialState, action: LangAction) => {
