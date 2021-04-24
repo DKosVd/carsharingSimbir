@@ -5,14 +5,29 @@ import Header from '../../../components/Header/Header'
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs'
 import Map from '../Map/Map'
 import Order from '../Order/Order'
+import { axios } from '../../../../utils/axios'
 
 export function Main() {
     const [open, setOpen] = React.useState<boolean>(false)
-    const [value, setValue] = React.useState<string>('default')
+    const [city, setCity] = React.useState<string>('')
+    const [place, setPlace] = React.useState<string>('')
 
-    const handleChangeValue = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setValue(e.target.value)
+    const handleChangeCity = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setCity(e.target.value)
     }
+
+    const handleChangePlace = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setPlace(e.target.value)
+        async function get(params:string) {
+            const {data} = await axios.get('/api/db/point')   
+            const a = data.data.filter( (el:any) => el?.cityId?.name.includes(city))
+            console.log(a)
+            setCity(city + ' ' +  a[1].address)
+        }
+        get(e.target.value)
+    }
+
+    console.log(city)
 
     return (
         <>
@@ -29,26 +44,26 @@ export function Main() {
                                 <div className="order-form__elem">
                                     <div className="optional-wrapper order-form__elem_layout select-close">
                                         <label>Город</label>
-                                        <select value={value} onChange={handleChangeValue} className="underline order-form__elem_ml" >
-                                            <option value="default" disabled>Выберите город</option>
-                                            <option value="Samara">Самара</option>
-                                            <option value="Ul'anovsk">Ульяновск</option>
-                                            <option value="Sizran'">Сызрань</option>
+                                        <select value={city} onChange={handleChangeCity} className="underline order-form__elem_ml" >
+                                            <option value="" disabled>Выберите город</option>
+                                            <option value="Самара">Самара</option>
+                                            <option value="Ульяновск">Ульяновск</option>
+                                            <option value="Сызрань">Сызрань</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div className="order-form__elem ">
                                     <div className="optional-wrapper order-form__elem_layout" >
                                         <label>Пункт выдачи</label>
-                                        <input type="text" placeholder="Начните вводить пункт..." className="underline order-form__elem_ml" />
+                                        <input type="text" value={place} placeholder="Начните вводить пункт..." className="underline order-form__elem_ml" onChange={handleChangePlace}/>
                                     </div>
                                 </div>
                             </form>
                         </div>
                         <div className="order-city">
-                            <p>Выбрать на карте</p>
+                            <p>Выбрать на карте:</p>
                             <div className="order__city__img">
-                                <Map/>
+                                <Map query={city}/>
                             </div>
                         </div>
                     </div>

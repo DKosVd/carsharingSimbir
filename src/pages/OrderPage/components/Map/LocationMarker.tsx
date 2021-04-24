@@ -1,6 +1,4 @@
-
-import { Marker, useMap } from 'react-leaflet';
-import { Popup } from 'react-leaflet';
+import { Marker, Popup, useMap } from 'react-leaflet';
 import { LatLngExpression } from 'leaflet';
 
 const LocationMarker = (position: LatLngExpression) => {
@@ -10,6 +8,9 @@ const LocationMarker = (position: LatLngExpression) => {
   
     return position === null ? null : (
       <Marker position={position}>
+        <Popup>
+          <span>Тут</span>
+        </Popup>
       </Marker>
     )
 }

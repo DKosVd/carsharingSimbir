@@ -1,39 +1,36 @@
-import React, { createRef, useEffect, useState } from 'react'
-import { Popup, useMap} from 'react-leaflet';
-import { Marker } from 'react-leaflet';
+import  {useEffect, useState } from 'react'
 import { TileLayer } from 'react-leaflet';
 import { MapContainer } from 'react-leaflet';
 import LocationMarker from './LocationMarker';
 import s from "./map.module.css"
-import L, { LatLngTuple } from 'leaflet';
-import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
+import { LatLngTuple } from 'leaflet';
+import { OpenStreetMapProvider } from 'leaflet-geosearch';
 
+const provider = new OpenStreetMapProvider()
 
+interface IMapProps {
+    query?: string;
+}
 
-const searchControl = new (GeoSearchControl as any)({
-    style: 'button',
-    provider: new OpenStreetMapProvider(),
-});
-
-const Map: React.FC = () => {
-    const ref = createRef<HTMLDivElement>();
+const Map = ({query}: IMapProps) => {
     const [position, setPosition] = useState<LatLngTuple | null>(null)
     useEffect(() => {
-        let map = new L.Map(ref.current as HTMLElement);
-        map.addControl(searchControl);
-        const form:any = document.querySelector('.geosearch form')
-        const input:any = document.querySelector('.glass')
-        input.value = 'Самара'
-        map.on('geosearch/showlocation', (e: any) => {
-            setPosition([e.location.x, e.location.y])
-        })
-    }, [])
-
+        async function name() {
+            if(!query) {
+                return
+            }
+            const result = await provider.search({query})
+            if(result.length) {
+                setPosition([result[0].x, result[0].y])
+            }
+        }
+        name()
+    }, [query])
 
 
     return (
-        <div id="#map" ref={ref}>
-        <MapContainer  center={[54.32824, 48.38657]} zoom={13} scrollWheelZoom={false} className={s.map}>
+        <div id="#map">
+        <MapContainer  center={[54.32824, 48.38657]} zoom={13}  className={s.map}>
             <TileLayer
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
