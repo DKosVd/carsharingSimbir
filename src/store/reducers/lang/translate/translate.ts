@@ -1,6 +1,8 @@
 import { IText } from "../contracts/state";
 
 
+//TODO: add translate for button
+
 const translations:{[index: string] : IText} = {
     'Рус': {
         title: 'Каршеринг',
