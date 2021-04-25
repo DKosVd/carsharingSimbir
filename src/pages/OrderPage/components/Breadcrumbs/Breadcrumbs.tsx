@@ -12,7 +12,7 @@ export function Breadcrumbs() {
     return (
         <div className={s.breadcrumbs}>   
             <div className={`${s.breadcrumbs__elems} container`}>
-                {arr.map( el => <span className={s.breadcrumbs__elem}>{el.title}</span>)}
+                {arr.map( (el, idx) => <span key={`${idx}__${el.title}`} className={`${s.breadcrumbs__elem} ${''}`}>{el.title}</span>)}
             </div>
         </div>
     )

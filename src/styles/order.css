@@ -87,4 +87,7 @@
     .order-container {
         margin: 36px 64px 0px 64px;
     }
+    .order__empty {
+        border-right: 0;
+    }
 }
