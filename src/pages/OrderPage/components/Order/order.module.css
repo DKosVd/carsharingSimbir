@@ -74,9 +74,3 @@
     color: var(--main-black);
 }
 
-
-@media (max-width: 1440.88px) {
-    .order__main {
-        padding: 34px 0px 0px 0px;
-    }
-}
