@@ -1,0 +1,30 @@
+.orderChose__car {
+    min-width: 100%;
+}
+
+.order__cars {
+    min-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 75vh;
+    overflow-y: auto;
+    scroll-snap-type: y;
+}
+
+.order__car {
+    scroll-snap-align: start;
+    min-height: 222px;
+    flex: 0 1 50%;
+    border: 1px solid var(--gray-light);
+    margin: 0px;
+}
+
+.order__car:hover {
+    border: 1px solid var(--main-black);
+    cursor: pointer;
+}
+
+.order__car_active {
+    border: 1px solid var(--main-color);
+    cursor: pointer;
+}
