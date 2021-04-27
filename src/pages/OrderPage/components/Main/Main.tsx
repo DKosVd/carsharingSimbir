@@ -7,6 +7,7 @@ import Order from '../Order/Order'
 import { axios } from '../../../../utils/axios'
 import ChoseCity from '../ChoseCity/ChoseCity'
 import ChoseCar from '../ChoseCar/ChoseCar'
+import ChoseDls from '../ChoseDls/ChoseDls'
 
 
 
@@ -14,7 +15,7 @@ export function Main() {
     const [open, setOpen] = React.useState<boolean>(false)
     const [city, setCity] = React.useState<string>('')
     const [place, setPlace] = React.useState<string>('')
-    const [active, SetActive] = React.useState<number>(0);
+    const [active, SetActive] = React.useState<number>(2);
 
     const handleChangeCity = (data: {label: string, value: string} | null) => {
         if(!data) return;
@@ -32,6 +33,10 @@ export function Main() {
         get(e.target.value)
     }
 
+    const handlechangePage = (page: number) => {
+        SetActive(page)
+    }
+
   
 
     return (
@@ -41,11 +46,12 @@ export function Main() {
                 <div className="container">
                     <Header />
                 </div>
-                <Breadcrumbs active={active}/>
+                <Breadcrumbs active={active} changePage={handlechangePage}/>
                 <div className="order-main container">
                     <div className="order__chose__current">
                             {active === 0 && <ChoseCity/>}
                             {active === 1 && <ChoseCar/>}
+                            {active === 2 && <ChoseDls/>}
                     </div>
                     <div className="order__empty">
 

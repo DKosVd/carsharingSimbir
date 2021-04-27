@@ -12,7 +12,7 @@ const ChoseCity = () => {
             <div className="order__chose-form">
                 <form className="order-form">
                     <div className="order-form__elem order-form__elem_mb">
-                        <div className="optional-wrapper order-form__elem_layout order-input-wrapper ">
+                        <div className="optional-wrapper order-form__elem_layout order-input-wrapper">
                             <label htmlFor="city">Город</label>
                             <Select className="underline order-form__elem_ml order-input" isClearable  placeholder="Начните вводить город..." styles={customStyles} options={[
                                 { value: 'chocolate', label: 'Chocolate' },
