@@ -6,8 +6,8 @@ function App() {
  
   return (
     <>
-      <MainPage/>
-      {/* <OrderPage/> */}
+      {/* <MainPage/> */}
+      <OrderPage/>
     </>
   );
 }

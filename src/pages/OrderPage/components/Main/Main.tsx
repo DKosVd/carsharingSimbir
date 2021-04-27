@@ -15,7 +15,7 @@ export function Main() {
     const [open, setOpen] = React.useState<boolean>(false)
     const [city, setCity] = React.useState<string>('')
     const [place, setPlace] = React.useState<string>('')
-    const [active, SetActive] = React.useState<number>(2);
+    const [active, SetActive] = React.useState<number>(1);
 
     const handleChangeCity = (data: {label: string, value: string} | null) => {
         if(!data) return;
