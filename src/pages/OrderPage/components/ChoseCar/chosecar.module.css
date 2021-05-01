@@ -11,6 +11,12 @@
     scroll-snap-type: y;
 }
 
+@media (max-width: 1439.88px) {
+    .order__cars {
+        min-width: 628px;
+    }
+}
+
 .order__car {
     min-height: 222px;
     flex: 0 1 50%;
@@ -66,6 +72,21 @@
 
 .order__form {
     display: flex;
+}
+
+@media (max-width: 767.88px) {
+    .order__car {
+        flex: 0 2 50.5%;
+    }
+
+    .order__cars {
+        justify-content: center;
+        min-width: 284px;
+    }
+
+    .order__car_content {
+        padding: 18px 4px 14px 18px;
+    }
 }
 
 

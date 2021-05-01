@@ -8,6 +8,8 @@ import { axios } from '../../../../utils/axios'
 import ChoseCity from '../ChoseCity/ChoseCity'
 import ChoseCar from '../ChoseCar/ChoseCar'
 import ChoseDls from '../ChoseDls/ChoseDls'
+import { Menu } from '@styled-icons/boxicons-regular'
+import ToggleOrder from '../ToggleOrder/ToggleOrder'
 
 
 
@@ -16,9 +18,10 @@ export function Main() {
     const [city, setCity] = React.useState<string>('')
     const [place, setPlace] = React.useState<string>('')
     const [active, SetActive] = React.useState<number>(1);
+  
 
-    const handleChangeCity = (data: {label: string, value: string} | null) => {
-        if(!data) return;
+    const handleChangeCity = (data: { label: string, value: string } | null) => {
+        if (!data) return;
         setCity(data?.value)
     }
 
@@ -37,21 +40,24 @@ export function Main() {
         SetActive(page)
     }
 
-  
+
 
     return (
         <>
             <Sidebar open={open} setOpen={setOpen} />
             <div className="order order-container">
-                <div className="container">
+                <div className="container main-header">
+                    <div className="main-header__menu" onClick={() => setOpen(!open)}>
+                            <Menu width={"32px"} height={"32px"} />
+                    </div>
                     <Header />
                 </div>
-                <Breadcrumbs active={active} changePage={handlechangePage}/>
+                <Breadcrumbs active={active} changePage={handlechangePage} />
                 <div className="order-main container">
                     <div className="order__chose__current">
-                            {active === 0 && <ChoseCity/>}
-                            {active === 1 && <ChoseCar/>}
-                            {active === 2 && <ChoseDls/>}
+                        {active === 0 && <ChoseCity />}
+                        {active === 1 && <ChoseCar />}
+                        {active === 2 && <ChoseDls />}
                     </div>
                     <div className="order__empty">
 
@@ -60,6 +66,7 @@ export function Main() {
                         <Order />
                     </div>
                 </div>
+                <ToggleOrder/>
             </div>
         </>
     )

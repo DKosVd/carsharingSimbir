@@ -88,6 +88,29 @@ button:focus {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
 }
 
+.main-header__menu {
+  display: none;
+}
+
+@media (max-width: 767.88px) {
+  .order-input-wrapper {
+    flex-direction: column;
+  }
+  .order-input-wrapper > label {
+    align-self: flex-start;
+    margin: 0px 0px 8px 16px;
+  }
+} 
+
+@media (max-width: 767.88px) {
+  .main-header__menu {
+      display: block;
+  }
+}
+
+.main-header {
+  display: flex;
+}
 
 .order__form_elem > label {
   font-family: Roboto;

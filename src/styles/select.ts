@@ -43,7 +43,8 @@ const customStyles = {
             // overflow: 'none'
         }
     },
-    placeholder: (styles: any) => {
+    placeholder: (styles: any, state: any) => {
+        console.log(state.hasValue)
         return {
             ...styles,
             fontFamily: 'Roboto',
@@ -51,10 +52,7 @@ const customStyles = {
             fontWeight: '300',
             fontSize: '14px',
             lineHeight: '16px',
-            top: '0%',
-            // position: 'none',
-            transform: 'none'
-            // marginTop: '20px',
+            top: state.hasValue ? "-50%": "50%",
         }
     },
     singleValue: (styles: any) => {

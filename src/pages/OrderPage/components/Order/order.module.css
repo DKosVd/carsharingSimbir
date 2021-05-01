@@ -4,6 +4,18 @@
     min-height: 100%
 }
 
+@media (max-width: 1023.88px) {
+    .order__main {
+        margin: 0px 0px 34px 0px;
+    }
+}
+
+@media (max-width: 767.88px) {
+    .order__main {
+        padding: 34px 0px 0px 22px;
+    }
+}
+
 .order__details {
     /* margin: 0px 0px 34px 0px; */
 }
@@ -21,6 +33,12 @@
     display: flex;
     justify-content: space-between;
     margin: 36px 0px 36px 0px;
+}
+
+@media (max-width: 767.88px) {
+    .order__detail {
+        margin: 26px 0px 26px 0px;
+    }
 }
 
 .order__title {
