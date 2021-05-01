@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/carsharingSimbir/static/css/main.1ec68661.chunk.css",
-    "main.js": "/carsharingSimbir/static/js/main.0047af92.chunk.js",
-    "main.js.map": "/carsharingSimbir/static/js/main.0047af92.chunk.js.map",
+    "main.js": "/carsharingSimbir/static/js/main.817ec986.chunk.js",
+    "main.js.map": "/carsharingSimbir/static/js/main.817ec986.chunk.js.map",
     "runtime-main.js": "/carsharingSimbir/static/js/runtime-main.4c571cd7.js",
     "runtime-main.js.map": "/carsharingSimbir/static/js/runtime-main.4c571cd7.js.map",
     "static/js/2.f0c8583f.chunk.js": "/carsharingSimbir/static/js/2.f0c8583f.chunk.js",
@@ -21,6 +21,6 @@
     "static/js/runtime-main.4c571cd7.js",
     "static/js/2.f0c8583f.chunk.js",
     "static/css/main.1ec68661.chunk.css",
-    "static/js/main.0047af92.chunk.js"
+    "static/js/main.817ec986.chunk.js"
   ]
 }
