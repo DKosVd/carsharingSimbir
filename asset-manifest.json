@@ -1,25 +1,26 @@
 {
   "files": {
-    "main.css": "/carsharingSimbir/static/css/main.dcee26c4.chunk.css",
-    "main.js": "/carsharingSimbir/static/js/main.55bae36c.chunk.js",
-    "main.js.map": "/carsharingSimbir/static/js/main.55bae36c.chunk.js.map",
+    "main.css": "/carsharingSimbir/static/css/main.1ec68661.chunk.css",
+    "main.js": "/carsharingSimbir/static/js/main.0047af92.chunk.js",
+    "main.js.map": "/carsharingSimbir/static/js/main.0047af92.chunk.js.map",
     "runtime-main.js": "/carsharingSimbir/static/js/runtime-main.4c571cd7.js",
     "runtime-main.js.map": "/carsharingSimbir/static/js/runtime-main.4c571cd7.js.map",
-    "static/js/2.02b24ae3.chunk.js": "/carsharingSimbir/static/js/2.02b24ae3.chunk.js",
-    "static/js/2.02b24ae3.chunk.js.map": "/carsharingSimbir/static/js/2.02b24ae3.chunk.js.map",
+    "static/js/2.f0c8583f.chunk.js": "/carsharingSimbir/static/js/2.f0c8583f.chunk.js",
+    "static/js/2.f0c8583f.chunk.js.map": "/carsharingSimbir/static/js/2.f0c8583f.chunk.js.map",
     "index.html": "/carsharingSimbir/index.html",
-    "static/css/main.dcee26c4.chunk.css.map": "/carsharingSimbir/static/css/main.dcee26c4.chunk.css.map",
-    "static/js/2.02b24ae3.chunk.js.LICENSE.txt": "/carsharingSimbir/static/js/2.02b24ae3.chunk.js.LICENSE.txt",
+    "static/css/main.1ec68661.chunk.css.map": "/carsharingSimbir/static/css/main.1ec68661.chunk.css.map",
+    "static/js/2.f0c8583f.chunk.js.LICENSE.txt": "/carsharingSimbir/static/js/2.f0c8583f.chunk.js.LICENSE.txt",
     "static/media/1-full.jpg": "/carsharingSimbir/static/media/1-full.b9f90be6.jpg",
     "static/media/2-full.jpg": "/carsharingSimbir/static/media/2-full.0203cdad.jpg",
     "static/media/3-full.jpg": "/carsharingSimbir/static/media/3-full.632b5f46.jpg",
     "static/media/4-full.jpg": "/carsharingSimbir/static/media/4-full.387cafc3.jpg",
-    "static/media/index.css": "/carsharingSimbir/static/media/Roboto-Regular.a8d6ac03.ttf"
+    "static/media/index.css": "/carsharingSimbir/static/media/Roboto-Regular.a8d6ac03.ttf",
+    "static/media/car.1ae9c59a.png": "/carsharingSimbir/static/media/car.1ae9c59a.png"
   },
   "entrypoints": [
     "static/js/runtime-main.4c571cd7.js",
-    "static/js/2.02b24ae3.chunk.js",
-    "static/css/main.dcee26c4.chunk.css",
-    "static/js/main.55bae36c.chunk.js"
+    "static/js/2.f0c8583f.chunk.js",
+    "static/css/main.1ec68661.chunk.css",
+    "static/js/main.0047af92.chunk.js"
   ]
 }
