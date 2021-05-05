@@ -22,7 +22,7 @@ const customStyles = {
                 cursor: 'pointer'
             },
             ':active': {
-                backgroundColor: 'none'
+                backgroundColor: 'none',
             }
         }
     },
@@ -32,7 +32,7 @@ const customStyles = {
             border: 'none',
             boxShadow: 'none',
             minHeight: '0',
-            maxHeight: '16px'
+            maxHeight: '16px',
         }
     },
     valueContainer: (styles: any) => {
@@ -40,11 +40,10 @@ const customStyles = {
             ...styles,
             maxHeight: '16px',
             padding: '4px 8px',
-            // overflow: 'none'
+            position: 'none'
         }
     },
     placeholder: (styles: any, state: any) => {
-        console.log(state.hasValue)
         return {
             ...styles,
             fontFamily: 'Roboto',
@@ -58,15 +57,15 @@ const customStyles = {
     singleValue: (styles: any) => {
         return {
             ...styles,
-            backgroundColor: 'white',
             fontFamily: 'Roboto',
             fontStyle: 'normal',
             fontWeight: '300',
+            overflow: 'auto',   
             fontSize: '14px',
             lineHeight: '16px',
             padding: '4px 0px',
             color: 'var(--main-black)',
-            top: '100%',
+            top: '45%',
         }
     },
     menu: (styles: any) => {
@@ -90,12 +89,6 @@ const customStyles = {
             }
         }
     },
-    indicatorContainer: (styles: any) => {
-        return {
-            ...styles,
-        
-        }
-    }
 }
 
 export default customStyles;

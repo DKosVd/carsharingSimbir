@@ -4,7 +4,12 @@ import car from '../../../../assets/static/car.png'
 import { useDispatch } from 'react-redux';
 import { ChoseCarAction } from '../../../../store/actions/order/order';
 
-const ChoseCar = () => {
+interface IChoseCarProps {
+    changeActiveBtn: (value: boolean) => void;
+}
+
+
+const ChoseCar = ({changeActiveBtn}: IChoseCarProps) => {
     const [auto, setAuto] = useState<number | null>(null)
     const autos = [{ model: 'SONATA', minprice: 10000, maxprice: 32000 },
         { model: 'SONATA', minprice: 10000, maxprice: 329000 },
@@ -20,6 +25,7 @@ const ChoseCar = () => {
     const setActiveCar = (id: number, el: {model: string, minprice: number, maxprice: number}) => {
         dispatch(ChoseCarAction(el))
         setAuto(id)
+        changeActiveBtn(false)
     }
 
     return (

@@ -6,7 +6,10 @@ import { OrderState } from './contracts/state';
 const initialState: OrderState = {
     choseCity: null,
     choseCar: null,
-    choseDLC: null
+    choseDLC: null,
+    step: 0,
+    currentStep: 0,
+    btnOpt: [{name: 'Выбрать модель', isDisabled: true}, {name: 'Дополнительно', isDisabled: true}, {name: 'Итого', isDisabled: true}, {name: 'Заказать', isDisabled: true}, {name: 'Отменить', isDisabled: true}]
 }
 
 export const orderReducer = (state = initialState, action: OrderAction) => {
@@ -16,6 +19,47 @@ export const orderReducer = (state = initialState, action: OrderAction) => {
                 ...state,
                 choseCar: action.payload
             }
+        case OrderActionType.CHOSE_CITY: 
+            return {
+                ...state, 
+                choseCity: {
+                    city: action.payload
+                }
+            }
+        case OrderActionType.CHOSE_PLACE: 
+            return {
+                ...state,
+                choseCity: {
+                    ...state.choseCity,
+                    address: action.payload
+                }
+            }
+        case OrderActionType.CHANGE_STEP: 
+            return {
+                ...state,
+                step: action.payload
+            }
+        case OrderActionType.CHANGE_ACTIVE_STEP: 
+            return {
+                ...state,
+                currentStep: action.payload
+            }
+        case OrderActionType.CHANGE_ACTIVE_BTN: 
+            const tmp = [...state.btnOpt];
+            tmp.splice(action.payload.active, 1, {
+            ...tmp[action.payload.active],
+            isDisabled: action.payload.isDisabled
+            })
+            return {
+                ...state,
+                btnOpt: tmp
+            }
+        case OrderActionType.CLEAR_CITY_PLACE: {
+            return {
+                ...state,
+                choseCity: null
+            }
+        }
         default: 
             return state;
     }

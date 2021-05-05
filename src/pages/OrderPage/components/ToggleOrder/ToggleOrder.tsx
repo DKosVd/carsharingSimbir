@@ -1,7 +1,13 @@
 import { useState, createRef, useEffect } from 'react'
 import Order from '../Order/Order';
 
-const ToggleOrder = () => {
+
+interface IToggleOrderProps {
+    active: number;
+    changePage: (page: number) => void;
+}
+
+const ToggleOrder = ({active, changePage}: IToggleOrderProps) => {
     const [show, setShow] = useState<boolean>(false);
     const ref = createRef<HTMLDivElement>();
 
@@ -13,7 +19,7 @@ const ToggleOrder = () => {
         }
         window.addEventListener('click', handle);
         return () => window.removeEventListener('click', handle)
-    }, [ref])
+    }, [ref, show])
 
 
     const handleToggle  = () => {
@@ -24,7 +30,7 @@ const ToggleOrder = () => {
         <div ref={ref} className={`order__toggle__order ${show ? 'order__toggle__order_show' : ''}`} onClick={handleToggle}>
             <span className="order__toggle__line"></span>
             <div className="order__toggle_wrapper">
-                <Order />
+                <Order active={active} changePage={changePage}/>
             </div>
         </div>
     )

@@ -1,18 +1,21 @@
-import React, { useState, useEffect } from 'react'
 import s from './order.module.css';
-import {axios} from '../../../../utils/axios'
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../store/store';
 
-const Order = () => {   
+interface IOrderProps {
+    active: number
+    changePage:(page: number) => void
+}
+
+const Order = ({active, changePage}: IOrderProps) => {   
     const auto = useSelector( (state: RootState) => state.order.choseCar)
-    useEffect( () => {
-        async function getData() {
-            const {data} = await axios.get('/api/db/point')
-            
-        }
-        getData()
-    }, [])
+    const cityPlace = useSelector( (state: RootState) => state.order.choseCity)
+    const btnOpt = useSelector( (state: RootState) => state.order.btnOpt)[active]
+
+    const handleChangePage = (e: React.MouseEvent) => {
+        e.stopPropagation()
+        changePage(active + 1)
+    }
 
     return (
         <div className={s.order__main}>
@@ -20,15 +23,11 @@ const Order = () => {
                 <h3>Ваш заказ:</h3>
             </div>
             <div className={s.order__details}>
-                <div className={s.order__detail}>
-                    <span className={s.order__detail__name}>Пункт выдачи </span>
-                    <span className={s.order__detail__value}>Ульяновск, Нариманова 42</span>
-                </div>
-                <div className={s.order__detail}>
-                    <span className={s.order__detail__name}>Модель</span>
-                    <span className={s.order__detail__value}>SONATA</span>
-                </div>
-                <div className={s.order__detail}>
+                {cityPlace?.city && <div className={s.order__detail}>
+                    <span className={s.order__detail__name}>Пункт выдачи</span>
+                    <span className={s.order__detail__value}>{cityPlace.city}, {cityPlace?.address?.split(',').splice(1).join(',')}</span>
+                </div>}
+                {/* <div className={s.order__detail}>
                     <span className={s.order__detail__name}>Цвет</span>
                     <span className={s.order__detail__value}>Голубой</span>
                 </div>
@@ -51,7 +50,7 @@ const Order = () => {
                 <div className={s.order__detail}>
                     <span className={s.order__detail__name}>Правый руль</span>
                     <span className={s.order__detail__value}>Да</span>
-                </div>
+                </div> */}
                 {auto && <div className={s.order__detail}>
                     <span className={s.order__detail__name}>Модель</span>
                     <span className={s.order__detail__value}>{auto.model}</span>
@@ -60,7 +59,7 @@ const Order = () => {
             {auto &&<div className={s.order_price}>
                 <h4 className={s.order__price__elem}>Цена: <span className={s.order__price__value}>от {auto.minprice} до {auto.maxprice} Р</span></h4>
             </div>}
-            <button className="btn btn-book btn-full" onClick={ ( (e: React.MouseEvent) => e.stopPropagation())}>Выбрать модель</button>
+            <button className="btn btn-book btn-full" disabled={btnOpt.isDisabled} onClick={handleChangePage}>{btnOpt.name}</button>
         </div>
     )
 }

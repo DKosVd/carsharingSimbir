@@ -25,12 +25,14 @@
     font-style: normal;
 }
 
-.breadcrumbs__elem_active {
-    color: var(--main-color);
-}
+
 
 .breadcrumbs__elem_accept {
     color: var(--main-black);
+}
+
+.breadcrumbs__elem_active {
+    color: var(--main-color);
 }
 
 .breadcrumbs__elem::after {

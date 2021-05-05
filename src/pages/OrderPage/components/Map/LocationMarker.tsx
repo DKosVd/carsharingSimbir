@@ -1,15 +1,22 @@
 import { Marker, Popup, useMap } from 'react-leaflet';
 import { LatLngExpression } from 'leaflet';
+import { icon } from './Icon';
 
-const LocationMarker = (position: LatLngExpression) => {
+interface ILocationMarkerProps {
+  position: LatLngExpression,
+  name?: string
+}
+
+const LocationMarker = ({position, name}: ILocationMarkerProps) => {
+  
     const map = useMap()
     map.flyTo(position , map.getZoom());
 
-  
+    
     return position === null ? null : (
-      <Marker position={position}>
+      <Marker position={position} icon={icon} >
         <Popup>
-          <span>Тут</span>
+          <span>{name || 'Here'}</span>
         </Popup>
       </Marker>
     )

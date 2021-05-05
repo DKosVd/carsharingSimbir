@@ -2,6 +2,14 @@ export interface OrderState {
     choseCity: choseCity | null;
     choseCar: choseCar | null;
     choseDLC: choseDLC | null;
+    step: number;
+    currentStep: number;
+    btnOpt: btnOpt[];
+}
+
+export interface btnOpt {
+    name: string;
+    isDisabled: boolean;
 }
 
 export interface choseCity {

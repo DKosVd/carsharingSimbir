@@ -1,32 +1,38 @@
-import  {useEffect, useState } from 'react'
+import  {useEffect } from 'react'
 import { TileLayer } from 'react-leaflet';
 import { MapContainer } from 'react-leaflet';
 import LocationMarker from './LocationMarker';
 import s from "./map.module.css"
-import { LatLngTuple } from 'leaflet';
-import { OpenStreetMapProvider } from 'leaflet-geosearch';
-
-const provider = new OpenStreetMapProvider()
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../../store/store';
+import { FetchPointCity } from '../../../../store/actions/city/city';
+import { FetchPointsByCityAction } from '../../../../store/actions/point/point';
+ 
+// TODO: PASS NAME POINT TO LOCATIONMARKER
 
 interface IMapProps {
     query?: string;
+    place?: string;
 }
 
-const Map = ({query}: IMapProps) => {
-    const [position, setPosition] = useState<LatLngTuple | null>(null)
+const Map = ({query, place}: IMapProps) => {
+    const points = useSelector( (state: RootState) => state.point.points);
+    const pointByCity = useSelector( (state: RootState) => state.point.pointbycity)
+    const position = useSelector( (state: RootState) => state.city.point);
+    const dispatch = useDispatch()
     useEffect(() => {
-        async function name() {
-            if(!query) {
-                return
-            }
-            const result = await provider.search({query})
-            if(result.length) {
-                setPosition([result[0].x, result[0].y])
-            }
+        if(!query) {
+            return
         }
-        name()
-    }, [query])
+        dispatch(FetchPointCity(query))
+    }, [query, dispatch])
 
+    useEffect( () => {
+        if(!points) {
+            return
+        }
+    dispatch(FetchPointsByCityAction(points))
+    }, [points, dispatch])
 
     return (
         <div id="#map">
@@ -35,7 +41,13 @@ const Map = ({query}: IMapProps) => {
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            {position && <LocationMarker {...{lat: position[1], lng: position[0]}}/>}
+            {position && <LocationMarker  position={{lat: position[1], lng: position[0]}}/>}
+            {place ? pointByCity?.map( el => {
+                if(el.name === place) {
+                    return <LocationMarker key={`${el.name}`} position={{lat: el.point[1], lng: el.point[0]}} name={el.name}/>
+                }
+            }) 
+                   : pointByCity && pointByCity.map( el => <LocationMarker key={`${el.name}`} position={{lat: el.point[1], lng: el.point[0]}} name={el.name}/>)}
         </MapContainer>
         </div>
     )

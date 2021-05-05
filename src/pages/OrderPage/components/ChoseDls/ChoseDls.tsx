@@ -1,9 +1,12 @@
 import React from 'react';
 import s from './chosedls.module.css';
 
-const ChoseDls = () => {
 
+interface IChoseDlsProps {
+    changeActiveBtn: (value: boolean) => void;
+}
 
+const ChoseDls = ({changeActiveBtn}: IChoseDlsProps) => {
     return (
         <>
             <div className="order__chose-form">
