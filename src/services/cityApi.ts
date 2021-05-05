@@ -1,5 +1,5 @@
 import { ICity } from '../store/reducers/city/contracts/state'
-import {axios} from '../utils/axios'
+import {instance} from '../utils/axios'
 
 interface Response {
     data: ICity[] | null
@@ -7,7 +7,7 @@ interface Response {
 
 export const cityApi = {
     async get() {
-        const { data } = await axios.get<Response>('/api/db/city')
+        const { data } = await instance.get<Response>('/city')
         return data.data
     }
 }

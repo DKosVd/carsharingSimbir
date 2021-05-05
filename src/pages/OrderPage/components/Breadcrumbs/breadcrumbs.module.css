@@ -25,6 +25,10 @@
     font-style: normal;
 }
 
+.breadcrumbs__elem:hover {
+    cursor: pointer;
+}
+
 
 
 .breadcrumbs__elem_accept {

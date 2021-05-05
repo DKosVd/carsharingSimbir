@@ -72,7 +72,7 @@ const customStyles = {
         return {
             ...styles,
             borderRadius: '0px',
-            zIndex: '999'
+            zIndex: '9999'
         }
     },
     indicatorsContainer: (styles: any) => {

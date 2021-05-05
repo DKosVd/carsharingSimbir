@@ -1,5 +1,5 @@
 import { IPoints } from '../store/reducers/point/contracts/state'
-import {axios} from '../utils/axios'
+import {instance} from '../utils/axios'
 
 interface Response {
     data: IPoints[] | null
@@ -7,7 +7,7 @@ interface Response {
 
 export const pointApi = {
     async get() {
-        const { data } = await axios.get<Response>('/api/db/point')
+        const { data } = await instance.get<Response>('/point')
         return data.data
     }
 }

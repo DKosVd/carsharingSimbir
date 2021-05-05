@@ -4,7 +4,7 @@ import Order from '../Order/Order';
 
 interface IToggleOrderProps {
     active: number;
-    changePage: (page: number) => void;
+    changePage: (p: number) => void;
 }
 
 const ToggleOrder = ({active, changePage}: IToggleOrderProps) => {

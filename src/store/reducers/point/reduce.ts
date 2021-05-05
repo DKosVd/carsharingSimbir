@@ -22,8 +22,8 @@ export const pointReduce = (state = initialState, action: PointAction) => {
         case PointActionType.CLEAR_POINTS_CITY: 
             return {
                 ...state,
-                points: null,
-                pointbycity: null
+                points: [],
+                pointbycity: []
             }
         default: 
             return state

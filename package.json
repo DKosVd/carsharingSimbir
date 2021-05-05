@@ -42,7 +42,6 @@
     "deploy": "gh-pages -d build",
     "predeploy": "npm run build"
   },
-  "proxy": "http://api-factory.simbirsoft1.com",
   "eslintConfig": {
     "extends": [
       "react-app",

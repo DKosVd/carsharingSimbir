@@ -25,11 +25,16 @@ export function Main() {
         dispatch(ChangeStepAction(page))
     }
 
+    const handleChangeStep = (p: number) => {
+        dispatch(ChangeStepAction(p))
+    }
+
+
     const handleChangeActiveBtn = (value: boolean) => {
         dispatch(ChangeActiveBtn({active: currentActive, isDisabled: value}))
     }
 
-    const handleChangeCuurentActive = (page: number) => {
+    const handleChangeCurrentActive = (page: number) => {
         dispatch(ChangeActiveStepAction(page))
     }
 
@@ -43,11 +48,11 @@ export function Main() {
                     </div>
                     <Header />
                 </div>
-                <Breadcrumbs active={active} currentActive={currentActive} changePage={handleChangeCuurentActive} />
+                <Breadcrumbs active={active} currentActive={currentActive} changePage={handleChangeCurrentActive} />
                 <div className="order-main container">
                     <div className="order__chose__current">
-                        {currentActive === 0 && <ChoseCity changeActiveBtn={handleChangeActiveBtn}/>}
-                        {currentActive === 1 && <ChoseCar changeActiveBtn={handleChangeActiveBtn}/>}
+                        {currentActive === 0 && <ChoseCity changeActiveBtn={handleChangeActiveBtn} changePage={handleChangeStep} active={active}/>}
+                        {currentActive === 1 && <ChoseCar changeActiveBtn={handleChangeActiveBtn} />}
                         {currentActive === 2 && <ChoseDls changeActiveBtn={handleChangeActiveBtn}/>}
                     </div>
                     <div className="order__empty">

@@ -4,7 +4,7 @@ import { RootState } from '../../../../store/store';
 
 interface IOrderProps {
     active: number
-    changePage:(page: number) => void
+    changePage:(p: number) => void
 }
 
 const Order = ({active, changePage}: IOrderProps) => {   
