@@ -52,7 +52,7 @@ export function Main() {
                 <div className="order-main container">
                     <div className="order__chose__current">
                         {currentActive === 0 && <ChoseCity changeActiveBtn={handleChangeActiveBtn} changePage={handleChangeStep} active={active}/>}
-                        {currentActive === 1 && <ChoseCar changeActiveBtn={handleChangeActiveBtn} />}
+                        {currentActive === 1 && <ChoseCar changeActiveBtn={handleChangeActiveBtn} changePage={handleChangeStep}/>}
                         {currentActive === 2 && <ChoseDls changeActiveBtn={handleChangeActiveBtn}/>}
                     </div>
                     <div className="order__empty">
