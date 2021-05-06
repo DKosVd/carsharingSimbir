@@ -19,6 +19,7 @@
 
 .order__car {
     min-height: 222px;
+    max-height: 222px;
     flex: 0 1 50%;
     border: 1px solid var(--gray-light);
     margin: 0px;
