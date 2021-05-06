@@ -49,6 +49,8 @@
 
 .order__car_body {
     align-self: flex-end;
+    min-width: 256px;
+    min-height: 116px;
 }
 
 .order__car_namecar {
@@ -73,6 +75,14 @@
 .order__form {
     display: flex;
 }
+
+.order__car__body_img {
+    width: 256px;
+    height: 116px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 
 @media (max-width: 767.88px) {
     .order__car {

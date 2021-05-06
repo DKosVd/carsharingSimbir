@@ -1,6 +1,7 @@
 import { applyMiddleware, compose, createStore } from 'redux';
 import CreateSagaMiddleware from 'redux-saga';
 import { rootReducer } from './reducers';
+import { CarsState } from './reducers/cars/contracts/state';
 import { CityState } from './reducers/city/contracts/state';
 import { LangState } from './reducers/lang/contracts/state';
 import { OrderState } from './reducers/order/contracts/state';
@@ -20,7 +21,8 @@ export interface RootState {
     lang: LangState,
     order: OrderState,
     city: CityState,
-    point: PointState
+    point: PointState,
+    cars: CarsState
 }
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;

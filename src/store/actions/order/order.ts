@@ -1,5 +1,6 @@
 import { Action } from 'redux';
-import { choseCar, choseCity } from '../../reducers/order/contracts/state';
+import { ICar } from '../../reducers/cars/contracts/state';
+import { choseCity } from '../../reducers/order/contracts/state';
 
 export enum OrderActionType {
     CHOSE_CITY = 'order/CHOSE_CITY',
@@ -19,7 +20,7 @@ export enum OrderActionType {
 
 export interface IChoseCar extends Action<OrderActionType> {
     type: OrderActionType.CHOSE_CAR,
-    payload: choseCar;
+    payload: ICar;
 }
 
 export interface IChangeActiveStep extends Action<OrderActionType> {
@@ -81,7 +82,7 @@ export const ChosePlaceAction = (payload: choseCity['address']): IChosePlace => 
     payload
 })
 
-export const ChoseCarAction = (payload: choseCar): IChoseCar => ({
+export const ChoseCarAction = (payload: ICar): IChoseCar => ({
     type: OrderActionType.CHOSE_CAR,
     payload
 })

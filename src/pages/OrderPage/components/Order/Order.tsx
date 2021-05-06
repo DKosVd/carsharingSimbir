@@ -53,11 +53,11 @@ const Order = ({active, changePage}: IOrderProps) => {
                 </div> */}
                 {auto && <div className={s.order__detail}>
                     <span className={s.order__detail__name}>Модель</span>
-                    <span className={s.order__detail__value}>{auto.model}</span>
+                    <span className={s.order__detail__value}>{auto.name}</span>
                 </div>}
             </div>
             {auto &&<div className={s.order_price}>
-                <h4 className={s.order__price__elem}>Цена: <span className={s.order__price__value}>от {auto.minprice} до {auto.maxprice} Р</span></h4>
+                <h4 className={s.order__price__elem}>Цена: <span className={s.order__price__value}>от {auto.priceMin} до {auto.priceMax} ₽</span></h4>
             </div>}
             <button className="btn btn-book btn-full" disabled={btnOpt.isDisabled} onClick={handleChangePage}>{btnOpt.name}</button>
         </div>

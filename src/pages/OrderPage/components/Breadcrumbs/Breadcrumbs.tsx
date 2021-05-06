@@ -10,7 +10,6 @@ export function Breadcrumbs({active, changePage, currentActive}: {active: number
     ]
     const [show, setShow] = React.useState<boolean>(false)
     const ref = React.createRef<HTMLDivElement>()
-    console.log(active)
     React.useEffect( () => {
 
         function handle(e: MouseEvent):void {

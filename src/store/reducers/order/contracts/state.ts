@@ -1,6 +1,8 @@
+import { ICar } from "../../cars/contracts/state";
+
 export interface OrderState {
     choseCity: choseCity | null;
-    choseCar: choseCar | null;
+    choseCar: ICar | null;
     choseDLC: choseDLC | null;
     step: number;
     currentStep: number;
@@ -15,12 +17,6 @@ export interface btnOpt {
 export interface choseCity {
     city: string;
     address: string;
-}
-
-export interface choseCar {
-    model: string;
-    minprice: number;
-    maxprice: number;
 }
 
 export interface choseDLC {

@@ -4,7 +4,7 @@ import { mapApi } from "../../services/mapApi";
 import { CityActionType, IFetchCitiesCoordsAction, SetCitiesAction, SetPointCity } from "../actions/city/city";
 import { ICity } from "../reducers/city/contracts/state";
 
-export function* carSaga() {
+export function* citySaga() {
     yield takeEvery(CityActionType.FETCH_CITIES, getCity);
     yield takeEvery(CityActionType.FETCH_POINTS, getPoint);
 }
