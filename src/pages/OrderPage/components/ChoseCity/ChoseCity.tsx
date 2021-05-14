@@ -9,15 +9,14 @@ import { RootState } from '../../../../store/store'
 import { ClearPointsByCityAction, FetchPointsAction, SetPointsByCityAction } from '../../../../store/actions/point/point'
 import { ICity } from '../../../../store/reducers/city/contracts/state'
 import { IPoints } from '../../../../store/reducers/point/contracts/state'
-import { ChoseCityAction, ChosePlaceAction, ClearCityPlace } from '../../../../store/actions/order/order';
+import { ChoseCityAction, ChosePlaceAction, ClearCars, ClearCityPlace, ClearDLC } from '../../../../store/actions/order/order';
 
 interface IChoseCityProps {
     changeActiveBtn: (value: boolean) => void;
     changePage: (p: number) => void;
-    active: number;
 }
 
-const ChoseCity = ({ changeActiveBtn, changePage, active }: IChoseCityProps) => {
+const ChoseCity = ({ changeActiveBtn, changePage }: IChoseCityProps) => {
     const dispatch = useDispatch()
     const cities = useSelector((state: RootState) => state.city.cities);
     const points = useSelector((state: RootState) => state.point.points);
@@ -36,6 +35,8 @@ const ChoseCity = ({ changeActiveBtn, changePage, active }: IChoseCityProps) => 
         dispatch(ClearPointsByCityAction())
         changeActiveBtn(true)
         changePage(0)
+        dispatch(ClearCars())
+        dispatch(ClearDLC())
         dispatch(ClearCityPlace())
         return
     }
@@ -44,7 +45,7 @@ const ChoseCity = ({ changeActiveBtn, changePage, active }: IChoseCityProps) => 
         if (elem) {
             dispatch(ChosePlaceAction(`${elem.name}, ${elem.address}`))
             changeActiveBtn(false)
-            changePage(active + 1)
+            changePage(1)
             return
         }
         changeActiveBtn(true)

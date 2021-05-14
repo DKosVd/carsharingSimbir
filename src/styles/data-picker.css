@@ -1,0 +1,14 @@
+.react-datepicker__close-icon::after {
+    cursor: pointer;
+    color: #000;
+    background-color: white;
+    border-radius: 50%;
+    height: 16px;
+    width: 16px;
+    padding: 0px;
+    font-size: 16px;
+    line-height: 1;
+    text-align: center;
+    display: table-cell;
+    content: "\00d7";
+}

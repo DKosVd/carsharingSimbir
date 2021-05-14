@@ -25,6 +25,15 @@
     font-style: normal;
 }
 
+.breadcrumbs__result {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    color: var(--main-black);
+}
+
 .breadcrumbs__elem:hover {
     cursor: pointer;
 }

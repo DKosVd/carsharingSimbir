@@ -10,6 +10,7 @@ export interface ICar {
     description?: string;
     categoryId: ICategory;
     priceMax: number;
+    number: string;
     thumbnail: IThumbnail,
     priceMin: number;
     colors?: string[];

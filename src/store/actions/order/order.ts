@@ -15,13 +15,29 @@ export enum OrderActionType {
     CHOSE_RATE = 'order/CHOSE_RATE',
     CHOSE_FULL_OIL = 'order/CHOSE_FULL_OIL',
     CHOSE_BABY_SEAT = 'order/CHOSE_BABY_SEAT',
-    CHOSE_RIGHT_DRIVE = 'order/CHOSE_RIGHT_DRIVE'
+    CHOSE_RIGHT_DRIVE = 'order/CHOSE_RIGHT_DRIVE',
+    CLEAR_CARS = 'order/CLEAR_CARS',
+    CLEAR_DLC = 'order/CLEAR_DLC'
 }
 
 export interface IChoseCar extends Action<OrderActionType> {
     type: OrderActionType.CHOSE_CAR,
     payload: ICar;
 }
+
+export interface IChoseColor extends Action<OrderActionType> {
+    type: OrderActionType.CHOSE_COLOR,
+    payload: string;
+}
+
+export interface IClearCars extends Action<OrderActionType> {
+    type: OrderActionType.CLEAR_CARS,
+}
+
+export interface IClearDLC extends Action<OrderActionType> {
+    type: OrderActionType.CLEAR_DLC,
+}
+
 
 export interface IChangeActiveStep extends Action<OrderActionType> {
     type: OrderActionType.CHANGE_ACTIVE_STEP,
@@ -46,21 +62,29 @@ export interface IChangeStep extends Action<OrderActionType> {
 
 export interface IChangeActiveBtn extends Action<OrderActionType> {
     type: OrderActionType.CHANGE_ACTIVE_BTN,
-    payload: {active: number, isDisabled: boolean};
+    payload: { active: number, isDisabled: boolean };
 }
 
 export interface IClearCityPlace extends Action<OrderActionType> {
     type: OrderActionType.CLEAR_CITY_PLACE
 }
 
-export const ClearCityPlace = ():IClearCityPlace => ({
+export const ClearCityPlace = (): IClearCityPlace => ({
     type: OrderActionType.CLEAR_CITY_PLACE
 })
 
-export const ChangeActiveBtn = (payload: {active: number, isDisabled: boolean}): IChangeActiveBtn => ({
+export const ClearCars = (): IClearCars => ({
+    type: OrderActionType.CLEAR_CARS
+})
+
+export const ClearDLC = (): IClearDLC => ({
+    type: OrderActionType.CLEAR_DLC
+})
+
+export const ChangeActiveBtn = (payload: { active: number, isDisabled: boolean }): IChangeActiveBtn => ({
     type: OrderActionType.CHANGE_ACTIVE_BTN,
     payload
-}) 
+})
 
 export const ChangeStepAction = (payload: number): IChangeStep => ({
     type: OrderActionType.CHANGE_STEP,
@@ -82,10 +106,24 @@ export const ChosePlaceAction = (payload: choseCity['address']): IChosePlace => 
     payload
 })
 
+export const ChoseColorAction = (payload: string): IChoseColor => ({
+    type: OrderActionType.CHOSE_COLOR,
+    payload
+})
+
 export const ChoseCarAction = (payload: ICar): IChoseCar => ({
     type: OrderActionType.CHOSE_CAR,
     payload
 })
 
 
-export type OrderAction = IChoseCar | IChosePlace | IChoseCity | IChangeStep | IChangeActiveBtn | IClearCityPlace | IChangeActiveStep;
+export type OrderAction = IChoseCar |
+    IChosePlace |
+    IChoseCity |
+    IChangeStep |
+    IChangeActiveBtn |
+    IClearCityPlace |
+    IChangeActiveStep |
+    IClearCars |
+    IClearDLC |
+    IChoseColor;

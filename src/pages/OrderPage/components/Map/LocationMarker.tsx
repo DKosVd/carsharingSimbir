@@ -5,20 +5,22 @@ import { icon } from './Icon';
 interface ILocationMarkerProps {
   position: LatLngExpression,
   name?: string
+  place?: string;
 }
 
-const LocationMarker = ({position, name}: ILocationMarkerProps) => {
+const LocationMarker = ({position, name, place}: ILocationMarkerProps) => {
   
     const map = useMap()
     map.flyTo(position , map.getZoom());
 
     
-    return position === null ? null : (
-      <Marker position={position} icon={icon} >
+    return position === null ? null : (<>
+      {name && <Marker position={position} icon={icon} >
         <Popup>
-          <span>{name || 'Here'}</span>
+          <span>{name}</span>
         </Popup>
-      </Marker>
+      </Marker>}
+      </>
     )
 }
 

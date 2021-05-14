@@ -7,8 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../store/store';
 import { FetchPointCity } from '../../../../store/actions/city/city';
 import { FetchPointsByCityAction } from '../../../../store/actions/point/point';
- 
-// TODO: PASS NAME POINT TO LOCATIONMARKER
 
 interface IMapProps {
     query?: string;
@@ -42,12 +40,7 @@ const Map = ({query, place}: IMapProps) => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             {position && <LocationMarker  position={{lat: position[1], lng: position[0]}}/>}
-            {place ? pointByCity?.map( el => {
-                if(el.name === place) {
-                    return <LocationMarker key={`${el.name}`} position={{lat: el.point[1], lng: el.point[0]}} name={el.name}/>
-                }
-            }) 
-                   : pointByCity && pointByCity.map( el => <LocationMarker key={`${el.name}`} position={{lat: el.point[1], lng: el.point[0]}} name={el.name}/>)}
+            {pointByCity?.map( el =>  <LocationMarker key={`${el.name}`} position={{lat: el.point[1], lng: el.point[0]}} name={el.name} place={place}/>)}
         </MapContainer>
         </div>
     )

@@ -73,8 +73,27 @@
     color: var(--gray-bold);
 }
 
+.order__car__h {
+    height: 44.5vh;
+}
+
+@media (max-width: 1023.88px) {
+    .order__car__h {
+        height: 52.6vh;
+    }
+}
+
+@media (max-width: 767.88px) {
+    .order__car__h {
+        height: 75vh;
+    }
+}
+
+
+
 .order__form {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .order__car__body_img {

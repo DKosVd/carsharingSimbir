@@ -36,10 +36,10 @@ export function Breadcrumbs({active, changePage, currentActive}: {active: number
     return (
         <div className={s.breadcrumbs}>   
             <div className={`${s.breadcrumbs__elems} ${s.breadcrumbs__ds} container ${s.breadcrumbs__menu}`}>
-                {arr.map( (el, idx) => <span key={`${idx}__${el.title}`} onClick={(e) => handleChange(e, idx)} className={`${s.breadcrumbs__elem} ${idx <= active ? s.breadcrumbs__elem_accept : '' } ${currentActive === idx ? s.breadcrumbs__elem_active :''} `}>{el.title}</span>)}
+                {active === 4 ? <span className={s.breadcrumbs__result}>Заказ номер RU58491823</span> : arr.map( (el, idx) => <span key={`${idx}__${el.title}`} onClick={(e) => handleChange(e, idx)} className={`${s.breadcrumbs__elem} ${idx <= active ? s.breadcrumbs__elem_accept : '' } ${currentActive === idx ? s.breadcrumbs__elem_active :''} `}>{el.title}</span>)}
             </div>
             <div ref={ref} className={`${s.breadcrumbs__elems} ${s.breadcrumbs__mb}  ${s.breadcrumbs__menu} ${show ? s.breadcrumbs__menu_open : s.breadcrumbs__menu_hide}`} onClick={handleShow}>
-                {arr.map( (el, idx) => <span key={`${idx}__${el.title}`} onClick={(e) => handleChange(e, idx)} className={`${s.breadcrumbs__elem} ${idx <= active ? s.breadcrumbs__elem_accept : '' } ${currentActive === idx ? s.breadcrumbs__elem_active :''} `}>{el.title}</span>)}
+                {active === 4 ? <span className={s.breadcrumbs__result}>Заказ номер RU58491823</span> : arr.map( (el, idx) => <span key={`${idx}__${el.title}`} onClick={(e) => handleChange(e, idx)} className={`${s.breadcrumbs__elem} ${idx <= active ? s.breadcrumbs__elem_accept : '' } ${currentActive === idx ? s.breadcrumbs__elem_active :''} `}>{el.title}</span>)}
             </div>
         </div>
     )

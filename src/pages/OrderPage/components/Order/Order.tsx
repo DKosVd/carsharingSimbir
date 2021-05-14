@@ -5,15 +5,25 @@ import { RootState } from '../../../../store/store';
 interface IOrderProps {
     active: number
     changePage:(p: number) => void
+    showPopup: (b: boolean) => void
 }
 
-const Order = ({active, changePage}: IOrderProps) => {   
-    const auto = useSelector( (state: RootState) => state.order.choseCar)
-    const cityPlace = useSelector( (state: RootState) => state.order.choseCity)
-    const btnOpt = useSelector( (state: RootState) => state.order.btnOpt)[active]
+const Order = ({active, changePage, showPopup}: IOrderProps) => {   
+    const auto = useSelector( (state: RootState) => state.order.choseCar);
+    const cityPlace = useSelector( (state: RootState) => state.order.choseCity);
+    const dlc = useSelector((state: RootState) => state.order.choseDLC);
+    const btnOpt = useSelector( (state: RootState) => state.order.btnOpt)[active];
 
     const handleChangePage = (e: React.MouseEvent) => {
         e.stopPropagation()
+        if(active === 3) {
+            showPopup(true)
+            return
+        }
+        if(btnOpt.className) {
+            changePage(active - 1)
+            return
+        }
         changePage(active + 1)
     }
 
@@ -27,11 +37,11 @@ const Order = ({active, changePage}: IOrderProps) => {
                     <span className={s.order__detail__name}>Пункт выдачи</span>
                     <span className={s.order__detail__value}>{cityPlace.city}, {cityPlace?.address?.split(',').splice(1).join(',')}</span>
                 </div>}
-                {/* <div className={s.order__detail}>
+                {dlc?.color &&  <div className={s.order__detail}>
                     <span className={s.order__detail__name}>Цвет</span>
-                    <span className={s.order__detail__value}>Голубой</span>
-                </div>
-                <div className={s.order__detail}>
+                    <span className={s.order__detail__value}>{dlc.color}</span>
+                </div>}
+                {/* <div className={s.order__detail}>
                     <span className={s.order__detail__name}>Длительность аренды</span>
                     <span className={s.order__detail__value}>1д 2ч</span>
                 </div>
@@ -59,7 +69,7 @@ const Order = ({active, changePage}: IOrderProps) => {
             {auto &&<div className={s.order_price}>
                 <h4 className={s.order__price__elem}>Цена: <span className={s.order__price__value}>от {auto.priceMin} до {auto.priceMax} ₽</span></h4>
             </div>}
-            <button className="btn btn-book btn-full" disabled={btnOpt.isDisabled} onClick={handleChangePage}>{btnOpt.name}</button>
+            <button className={`btn btn-book ${btnOpt.className ? 'btn-detail__red': ''} btn-full`} disabled={btnOpt.isDisabled} onClick={handleChangePage}>{btnOpt.name}</button>
         </div>
     )
 }

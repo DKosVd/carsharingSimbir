@@ -7,7 +7,25 @@
 
 .order__dls__row {
     display: flex;
+    max-width: 248px;
+    align-items: center;
+    justify-content: space-between;
     margin: 0px 0px 38px 0px;
+}
+
+.order__dls__row > label {
+    flex: 1 1;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0px 8px 0px 0px;
+}
+
+.order__dls__row {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
 }
 
 .order__dls__row_bl {
@@ -29,4 +47,11 @@
 
 .order__dls__elems__title_mb {
     margin: 0px 0px 20px 0px;
+}
+.order__dls__date {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
 }

@@ -9,7 +9,7 @@ const initialState: OrderState = {
     choseDLC: null,
     step: 0,
     currentStep: 0,
-    btnOpt: [{name: 'Выбрать модель', isDisabled: true}, {name: 'Дополнительно', isDisabled: true}, {name: 'Итого', isDisabled: true}, {name: 'Заказать', isDisabled: true}, {name: 'Отменить', isDisabled: true}]
+    btnOpt: [{name: 'Выбрать модель', isDisabled: true}, {name: 'Дополнительно', isDisabled: true}, {name: 'Итого', isDisabled: true}, {name: 'Заказать', isDisabled: true}, {name: 'Отменить', isDisabled: true, className: true}]
 }
 
 export const orderReducer = (state = initialState, action: OrderAction) => {
@@ -24,6 +24,14 @@ export const orderReducer = (state = initialState, action: OrderAction) => {
                 ...state, 
                 choseCity: {
                     city: action.payload
+                }
+            }
+        case OrderActionType.CHOSE_COLOR: 
+            return {
+                ...state,
+                choseDLC: {
+                    ...state.choseDLC,
+                    color: action.payload
                 }
             }
         case OrderActionType.CHOSE_PLACE: 
@@ -58,6 +66,18 @@ export const orderReducer = (state = initialState, action: OrderAction) => {
             return {
                 ...state,
                 choseCity: null
+            }
+        }
+        case OrderActionType.CLEAR_CARS: {
+            return {
+                ...state,
+                choseCar: null
+            }
+        }
+        case OrderActionType.CLEAR_DLC: {
+            return {
+                ...state,
+                choseDLC: null
             }
         }
         default: 

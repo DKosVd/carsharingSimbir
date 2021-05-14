@@ -5,7 +5,7 @@ import { ChoseCarAction } from '../../../../store/actions/order/order';
 import { FetchCarsAction, FetchCategoryAction, SetTypeAction } from '../../../../store/actions/cars/cars';
 import { RootState } from '../../../../store/store';
 import { ICar } from '../../../../store/reducers/cars/contracts/state';
-import { imageUrl } from '../../../../utils/axios';
+import { isBaseImg } from '../../../../utils/isBase64';
 
 interface IChoseCarProps {
     changeActiveBtn: (value: boolean) => void;
@@ -20,12 +20,6 @@ const ChoseCar = ({ changeActiveBtn, changePage }: IChoseCarProps) => {
     const categories = useSelector((state: RootState) => state.cars.category);
     const dispatch = useDispatch()
 
-    const isBaseImg = (url: string): string => {
-        if (url.includes('base64')) {
-            return url
-        }
-        return imageUrl + url
-    }
 
     const handleChangeType = (e: React.FormEvent<HTMLInputElement>) => {
         dispatch(SetTypeAction(e.currentTarget.value))
@@ -38,7 +32,7 @@ const ChoseCar = ({ changeActiveBtn, changePage }: IChoseCarProps) => {
         }
         dispatch(FetchCarsAction())
         dispatch(FetchCategoryAction())
-    }, [activeAuto])
+    }, [activeAuto, dispatch])
 
 
     const setActiveCar = (id: string, el: ICar) => {
@@ -46,6 +40,10 @@ const ChoseCar = ({ changeActiveBtn, changePage }: IChoseCarProps) => {
         changePage(2)
         setAuto(id)
         changeActiveBtn(false)
+    }
+
+    if(!autosByType) {
+        return null
     }
 
     return (
@@ -68,10 +66,10 @@ const ChoseCar = ({ changeActiveBtn, changePage }: IChoseCarProps) => {
                     </div>
                 </form>
             </div>
-            <div className={s.order__cars}>
+            <div className={`${s.order__cars} ${autosByType.length <= 6 ? `${s.order__car__h}` : ''}`}>
                 {autosByType && autosByType.map((el, idx: number) => {
                     return (
-                        <div key={`${idx}__${el}`} onClick={() => setActiveCar(el.id, el)} className={`${s.order__car} ${el.id === auto ? s.order__car_active : ''}`}>
+                        <div key={`${idx}__${el}`} onClick={() => setActiveCar(el.id, el)} className={`${s.order__car}  ${el.id === auto ? s.order__car_active : ''}`}>
                             <div className={s.order__car_content}>
                                 <div className={s.order__car_header}>
                                     <span className={s.order__car_namecar}>{el.name}</span>

@@ -12,6 +12,7 @@ export interface OrderState {
 export interface btnOpt {
     name: string;
     isDisabled: boolean;
+    className?: boolean;
 }
 
 export interface choseCity {
