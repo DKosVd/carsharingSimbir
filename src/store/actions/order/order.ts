@@ -1,17 +1,20 @@
 import { Action } from 'redux';
 import { ICar } from '../../reducers/cars/contracts/state';
-import { choseCity } from '../../reducers/order/contracts/state';
+import { choseCity, IRate } from '../../reducers/order/contracts/state';
 
 export enum OrderActionType {
     CHOSE_CITY = 'order/CHOSE_CITY',
     CHOSE_PLACE = 'order/CHOSE_PLACE',
     CHOSE_CAR = 'order/CHOSE_CAR',
+    FETCH_RATE = 'order/FETCH_RATE',
+    SET_RATE = 'order/SET_RATE',
     CHANGE_ACTIVE_BTN = 'order/CHANGE_ACTIVE_BTN',
     CLEAR_CITY_PLACE = 'order/CLEAR_CITY_PLACE',
     CHANGE_STEP = 'order/CHANGE_STEP',
     CHANGE_ACTIVE_STEP = 'order/CHANGE_ACTIVE_STEP',
     CHOSE_COLOR = 'order/CHOSE_COLOR',
-    CHOSE_DATE = 'order/CHOSE_DATE',
+    CHOSE_DATE_FROM = 'order/CHOSE_DATE_FROM',
+    CHOSE_DATE_TO = 'order/CHOSE_DATE_TO',
     CHOSE_RATE = 'order/CHOSE_RATE',
     CHOSE_FULL_OIL = 'order/CHOSE_FULL_OIL',
     CHOSE_BABY_SEAT = 'order/CHOSE_BABY_SEAT',
@@ -23,6 +26,30 @@ export enum OrderActionType {
 export interface IChoseCar extends Action<OrderActionType> {
     type: OrderActionType.CHOSE_CAR,
     payload: ICar;
+}
+
+export interface IChoseDateFrom extends Action<OrderActionType> {
+    type: OrderActionType.CHOSE_DATE_FROM,
+    payload: Date | [Date, Date] | null;
+}
+
+export interface IChoseDateTo extends Action<OrderActionType> {
+    type: OrderActionType.CHOSE_DATE_TO,
+    payload: Date | [Date, Date] | null;
+}
+
+export interface IFetchRate extends Action<OrderActionType> {
+    type: OrderActionType.FETCH_RATE
+}
+
+export interface IChoseRateAction extends Action<OrderActionType> {
+    type: OrderActionType.CHOSE_RATE,
+    payload: IRate
+}
+
+export interface ISetRateAction extends Action<OrderActionType> {
+    type: OrderActionType.SET_RATE,
+    payload: IRate[]
 }
 
 export interface IChoseColor extends Action<OrderActionType> {
@@ -77,6 +104,25 @@ export const ClearCars = (): IClearCars => ({
     type: OrderActionType.CLEAR_CARS
 })
 
+export const FetchRateAction = (): IFetchRate => ({
+    type: OrderActionType.FETCH_RATE
+})
+
+export const ChoseDateFrom = (payload: Date | [Date, Date] | null ): IChoseDateFrom => ({
+    type: OrderActionType.CHOSE_DATE_FROM,
+    payload
+})
+
+export const ChoseRateAction = (payload: IRate): IChoseRateAction => ({
+    type: OrderActionType.CHOSE_RATE,
+    payload
+})
+
+export const ChoseDateTo = (payload: Date | [Date, Date] | null ): IChoseDateTo => ({
+    type: OrderActionType.CHOSE_DATE_TO,
+    payload
+})
+
 export const ClearDLC = (): IClearDLC => ({
     type: OrderActionType.CLEAR_DLC
 })
@@ -116,6 +162,11 @@ export const ChoseCarAction = (payload: ICar): IChoseCar => ({
     payload
 })
 
+export const SetRateAction = (payload: IRate[]): ISetRateAction => ({
+    type: OrderActionType.SET_RATE,
+    payload
+})
+
 
 export type OrderAction = IChoseCar |
     IChosePlace |
@@ -126,4 +177,9 @@ export type OrderAction = IChoseCar |
     IChangeActiveStep |
     IClearCars |
     IClearDLC |
-    IChoseColor;
+    IChoseColor |
+    IFetchRate |
+    ISetRateAction |
+    IChoseDateFrom |
+    IChoseDateTo | 
+    IChoseRateAction;

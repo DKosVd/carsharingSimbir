@@ -7,6 +7,7 @@ export interface OrderState {
     step: number;
     currentStep: number;
     btnOpt: btnOpt[];
+    price: number;
 }
 
 export interface btnOpt {
@@ -22,9 +23,23 @@ export interface choseCity {
 
 export interface choseDLC {
     color: string;
-    date: Date | string;
-    rate: string;
+    startDate: Date | [Date, Date] | null;
+    returnDate: Date | [Date, Date] | null;
+    rates: IRate[];
+    choseRate: IRate;
     dlc: dls;
+}
+
+export interface IRate {
+    price: number;
+    rateTypeId: IRateTypeId;
+    id: string;
+}
+
+export interface IRateTypeId {
+    unit: string;
+    name: string;
+    id: string;
 }
 
 export interface dls {

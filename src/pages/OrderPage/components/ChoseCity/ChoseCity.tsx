@@ -50,6 +50,8 @@ const ChoseCity = ({ changeActiveBtn, changePage }: IChoseCityProps) => {
         }
         changeActiveBtn(true)
         changePage(0)
+        dispatch(ClearDLC())
+        dispatch(ClearCars())
         dispatch(ChosePlaceAction(''))
         return
     }

@@ -1,26 +1,28 @@
 import s from './order.module.css';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../store/store';
+import { dateFormat } from '../../../../utils/dateFormat';
 
 interface IOrderProps {
     active: number
-    changePage:(p: number) => void
+    changePage: (p: number) => void
     showPopup: (b: boolean) => void
 }
 
-const Order = ({active, changePage, showPopup}: IOrderProps) => {   
-    const auto = useSelector( (state: RootState) => state.order.choseCar);
-    const cityPlace = useSelector( (state: RootState) => state.order.choseCity);
+const Order = ({ active, changePage, showPopup }: IOrderProps) => {
+    const auto = useSelector((state: RootState) => state.order.choseCar);
+    const price = useSelector((state: RootState) => state.order.price);
+    const cityPlace = useSelector((state: RootState) => state.order.choseCity);
     const dlc = useSelector((state: RootState) => state.order.choseDLC);
-    const btnOpt = useSelector( (state: RootState) => state.order.btnOpt)[active];
-
+    const date = dateFormat(dlc?.startDate as Date, dlc?.returnDate as Date)
+    const btnOpt = useSelector((state: RootState) => state.order.btnOpt)[active];
     const handleChangePage = (e: React.MouseEvent) => {
         e.stopPropagation()
-        if(active === 3) {
+        if (active === 3) {
             showPopup(true)
             return
         }
-        if(btnOpt.className) {
+        if (btnOpt.className) {
             changePage(active - 1)
             return
         }
@@ -37,18 +39,20 @@ const Order = ({active, changePage, showPopup}: IOrderProps) => {
                     <span className={s.order__detail__name}>Пункт выдачи</span>
                     <span className={s.order__detail__value}>{cityPlace.city}, {cityPlace?.address?.split(',').splice(1).join(',')}</span>
                 </div>}
-                {dlc?.color &&  <div className={s.order__detail}>
+                {dlc?.color && <div className={s.order__detail}>
                     <span className={s.order__detail__name}>Цвет</span>
                     <span className={s.order__detail__value}>{dlc.color}</span>
                 </div>}
-                {/* <div className={s.order__detail}>
+                {dlc?.returnDate && dlc?.startDate && <div className={s.order__detail}>
                     <span className={s.order__detail__name}>Длительность аренды</span>
-                    <span className={s.order__detail__value}>1д 2ч</span>
-                </div>
-                <div className={s.order__detail}>
+                    <span className={s.order__detail__value}>{`${date[0] ? date[0] + 'д' : ''}${isNaN(date[1]) ? '' : date[1] + 'ч'}`}</span>
+                </div>}
+                {dlc?.choseRate && <div className={s.order__detail}>
                     <span className={s.order__detail__name}>Тариф</span>
-                    <span className={s.order__detail__value}>На сутки</span>
-                </div>
+                    <span className={s.order__detail__value}>{dlc.choseRate.rateTypeId.name}</span>
+                </div>}
+                {/* 
+                
                 <div className={s.order__detail}>
                     <span className={s.order__detail__name}>Полный бак</span>
                     <span className={s.order__detail__value}>Да</span>
@@ -66,10 +70,10 @@ const Order = ({active, changePage, showPopup}: IOrderProps) => {
                     <span className={s.order__detail__value}>{auto.name}</span>
                 </div>}
             </div>
-            {auto &&<div className={s.order_price}>
-                <h4 className={s.order__price__elem}>Цена: <span className={s.order__price__value}>от {auto.priceMin} до {auto.priceMax} ₽</span></h4>
+            {auto && <div className={s.order_price}>
+                <h4 className={s.order__price__elem}>Цена: {price ? <span  className={s.order__price__value}>{price} ₽</span> : <span className={s.order__price__value}>от {auto.priceMin} до {auto.priceMax} ₽</span>} </h4>
             </div>}
-            <button className={`btn btn-book ${btnOpt.className ? 'btn-detail__red': ''} btn-full`} disabled={btnOpt.isDisabled} onClick={handleChangePage}>{btnOpt.name}</button>
+            <button className={`btn btn-book ${btnOpt.className ? 'btn-detail__red' : ''} btn-full`} disabled={btnOpt.isDisabled} onClick={handleChangePage}>{btnOpt.name}</button>
         </div>
     )
 }

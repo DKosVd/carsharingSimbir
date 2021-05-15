@@ -12,3 +12,7 @@
     display: table-cell;
     content: "\00d7";
 }
+
+.react-datepicker__close-icon {
+    height: 90%;
+}

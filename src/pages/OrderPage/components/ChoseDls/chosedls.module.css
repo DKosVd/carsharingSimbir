@@ -13,6 +13,14 @@
     margin: 0px 0px 38px 0px;
 }
 
+.order__dls__lp {
+    padding: 0px 0px 0px 6px;
+}
+
+.order__dls__mb {
+    margin: 0px 0px 14px 0px;
+}
+
 .order__dls__row > label {
     flex: 1 1;
     display: flex;
@@ -52,6 +60,11 @@
     font-family: Roboto;
     font-style: normal;
     font-weight: 300;
+    padding: 0px 0px 0px 8px;
     font-size: 14px;
     line-height: 16px;
+}
+
+.order__dls__date.order__dls__lp {
+    padding: 0px 0px 0px 6px;
 }
