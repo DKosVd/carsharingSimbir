@@ -2,6 +2,7 @@ import s from './order.module.css';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../store/store';
 import { dateFormat } from '../../../../utils/dateFormat';
+import { toUpperCase } from '../../../../utils/toUpperCase';
 
 interface IOrderProps {
     active: number
@@ -10,6 +11,7 @@ interface IOrderProps {
 }
 
 const Order = ({ active, changePage, showPopup }: IOrderProps) => {
+    const numberOrder = useSelector((state: RootState) => state.order.id);
     const auto = useSelector((state: RootState) => state.order.choseCar);
     const price = useSelector((state: RootState) => state.order.price);
     const cityPlace = useSelector((state: RootState) => state.order.choseCity);
@@ -35,13 +37,13 @@ const Order = ({ active, changePage, showPopup }: IOrderProps) => {
                 <h3>Ваш заказ:</h3>
             </div>
             <div className={s.order__details}>
-                {cityPlace?.city && <div className={s.order__detail}>
+                {cityPlace?.city.name && <div className={s.order__detail}>
                     <span className={s.order__detail__name}>Пункт выдачи</span>
-                    <span className={s.order__detail__value}>{cityPlace.city}, {cityPlace?.address?.split(',').splice(1).join(',')}</span>
+                    <span className={s.order__detail__value}>{cityPlace?.city?.name}, {cityPlace.address ? `${cityPlace?.address?.name}, ${cityPlace?.address?.address}`.split(',').splice(1).join(','): ''}</span>
                 </div>}
                 {dlc?.color && <div className={s.order__detail}>
                     <span className={s.order__detail__name}>Цвет</span>
-                    <span className={s.order__detail__value}>{dlc.color}</span>
+                    <span className={s.order__detail__value}>{toUpperCase(dlc.color)}</span>
                 </div>}
                 {dlc?.returnDate && dlc?.startDate && <div className={s.order__detail}>
                     <span className={s.order__detail__name}>Длительность аренды</span>
@@ -51,20 +53,18 @@ const Order = ({ active, changePage, showPopup }: IOrderProps) => {
                     <span className={s.order__detail__name}>Тариф</span>
                     <span className={s.order__detail__value}>{dlc.choseRate.rateTypeId.name}</span>
                 </div>}
-                {/* 
-                
-                <div className={s.order__detail}>
+                {dlc?.dlc?.fullOil?.isPresent && <div className={s.order__detail}>
                     <span className={s.order__detail__name}>Полный бак</span>
                     <span className={s.order__detail__value}>Да</span>
-                </div>
-                <div className={s.order__detail}>
+                </div>}
+                {dlc?.dlc?.babySeat?.isPresent &&<div className={s.order__detail}>
                     <span className={s.order__detail__name}>Детское кресло</span>
                     <span className={s.order__detail__value}>Да</span>
-                </div>
-                <div className={s.order__detail}>
+                </div>}
+                { dlc?.dlc?.rightDrive?.isPresent && <div className={s.order__detail}>
                     <span className={s.order__detail__name}>Правый руль</span>
                     <span className={s.order__detail__value}>Да</span>
-                </div> */}
+                </div>}
                 {auto && <div className={s.order__detail}>
                     <span className={s.order__detail__name}>Модель</span>
                     <span className={s.order__detail__value}>{auto.name}</span>
@@ -73,7 +73,8 @@ const Order = ({ active, changePage, showPopup }: IOrderProps) => {
             {auto && <div className={s.order_price}>
                 <h4 className={s.order__price__elem}>Цена: {price ? <span  className={s.order__price__value}>{price} ₽</span> : <span className={s.order__price__value}>от {auto.priceMin} до {auto.priceMax} ₽</span>} </h4>
             </div>}
-            <button className={`btn btn-book ${btnOpt.className ? 'btn-detail__red' : ''} btn-full`} disabled={btnOpt.isDisabled} onClick={handleChangePage}>{btnOpt.name}</button>
+            {numberOrder ? <button className={`btn btn-book btn-detail__red btn-full`} >Отменить</button>:
+            <button className={`btn btn-book ${btnOpt.className ? 'btn-detail__red' : ''} btn-full`} disabled={btnOpt.isDisabled} onClick={handleChangePage}>{btnOpt.name}</button>}
         </div>
     )
 }

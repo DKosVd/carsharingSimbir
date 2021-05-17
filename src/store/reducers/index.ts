@@ -4,6 +4,7 @@ import { cityReducer } from './city/reduce';
 import { langReducer } from './lang/reduce';
 import { orderReducer } from './order/reduce';
 import {pointReduce} from './point/reduce';
+import { statusReduce } from './status/reduce';
 
 
 export const rootReducer = combineReducers({
@@ -11,5 +12,6 @@ export const rootReducer = combineReducers({
     order: orderReducer,
     city: cityReducer,
     point: pointReduce,
-    cars: carsReducer
+    cars: carsReducer,
+    status: statusReduce
 })

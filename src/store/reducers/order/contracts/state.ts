@@ -1,13 +1,37 @@
 import { ICar } from "../../cars/contracts/state";
+import { ICity } from "../../city/contracts/state";
+import { IPoints } from "../../point/contracts/state";
+import { IStatus } from "../../status/contracts/state";
 
 export interface OrderState {
+    id?: string;
     choseCity: choseCity | null;
     choseCar: ICar | null;
     choseDLC: choseDLC | null;
     step: number;
     currentStep: number;
     btnOpt: btnOpt[];
+    dlcrates: IDlcRate[];
     price: number;
+}
+
+export interface PostState {
+    id?: string;
+    orderStatusId: {
+        name?: string,
+        id: string,
+    },
+    cityId: ICity,
+    pointId: IPoints,
+    carId: ICar,
+    color: string,
+    dateFrom: number,
+    dateTo: number, 
+    rateId: IRate,
+    price: number,
+    isFullTank: boolean,
+    isNeedChildChair: boolean,
+    isRightWheel: boolean
 }
 
 export interface btnOpt {
@@ -17,8 +41,8 @@ export interface btnOpt {
 }
 
 export interface choseCity {
-    city: string;
-    address: string;
+    city: ICity;
+    address: IPoints;
 }
 
 export interface choseDLC {
@@ -27,7 +51,13 @@ export interface choseDLC {
     returnDate: Date | [Date, Date] | null;
     rates: IRate[];
     choseRate: IRate;
-    dlc: dls;
+    dlc: dlc;
+}
+
+export interface IDlcRate {
+    name: string;
+    price: number;
+    isPresent?: boolean;
 }
 
 export interface IRate {
@@ -42,8 +72,8 @@ export interface IRateTypeId {
     id: string;
 }
 
-export interface dls {
-    fullOil?: boolean;
-    babySeat?: boolean;
-    rightDrive?: boolean;
+export interface dlc {
+    fullOil?: IDlcRate;
+    babySeat?: IDlcRate;
+    rightDrive?: IDlcRate;
 }

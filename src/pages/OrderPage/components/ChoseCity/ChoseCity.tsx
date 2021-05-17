@@ -9,7 +9,7 @@ import { RootState } from '../../../../store/store'
 import { ClearPointsByCityAction, FetchPointsAction, SetPointsByCityAction } from '../../../../store/actions/point/point'
 import { ICity } from '../../../../store/reducers/city/contracts/state'
 import { IPoints } from '../../../../store/reducers/point/contracts/state'
-import { ChoseCityAction, ChosePlaceAction, ClearCars, ClearCityPlace, ClearDLC } from '../../../../store/actions/order/order';
+import { ChoseCityAction, ChosePlaceAction, ClearAddresPlace, ClearCars, ClearCityPlace, ClearDLC } from '../../../../store/actions/order/order';
 
 interface IChoseCityProps {
     changeActiveBtn: (value: boolean) => void;
@@ -28,7 +28,7 @@ const ChoseCity = ({ changeActiveBtn, changePage }: IChoseCityProps) => {
 
     const handleChoseCity = (elem: ICity | null) => {
         if (elem) {
-            dispatch(ChoseCityAction(elem.name))
+            dispatch(ChoseCityAction(elem))
             dispatch(FetchPointsAction(elem.id))
             return
         }
@@ -43,7 +43,7 @@ const ChoseCity = ({ changeActiveBtn, changePage }: IChoseCityProps) => {
 
     const handleChosePoint = (elem: IPoints | null) => {
         if (elem) {
-            dispatch(ChosePlaceAction(`${elem.name}, ${elem.address}`))
+            dispatch(ChosePlaceAction(elem))
             changeActiveBtn(false)
             changePage(1)
             return
@@ -52,7 +52,7 @@ const ChoseCity = ({ changeActiveBtn, changePage }: IChoseCityProps) => {
         changePage(0)
         dispatch(ClearDLC())
         dispatch(ClearCars())
-        dispatch(ChosePlaceAction(''))
+        dispatch(ClearAddresPlace())
         return
     }
 
@@ -65,7 +65,7 @@ const ChoseCity = ({ changeActiveBtn, changePage }: IChoseCityProps) => {
                         <div className="optional-wrapper order-form__elem_layout order-input-wrapper">
                             <label htmlFor="city">Город</label>
                             <CreatableSelect className="underline order-form__elem_ml order-input" value={cities?.filter(el => {
-                                if (el.name === cityPlace?.city) {
+                                if (el.name === cityPlace?.city.name) {
                                     return {
                                         name: el.name
                                     }
@@ -79,15 +79,15 @@ const ChoseCity = ({ changeActiveBtn, changePage }: IChoseCityProps) => {
                         <div className="optional-wrapper order-form__elem_layout order-input-wrapper">
                             <label htmlFor="place">Пункт выдачи</label>
                             <CreatableSelect className="underline order-form__elem_ml order-input" value={points?.filter(el => {
-                                if (`${el.name}, ${el.address}` === cityPlace?.address) {
+                                if (`${el.name}, ${el.address}` === `${cityPlace?.address?.name}, ${cityPlace?.address?.address}`) {
                                     return {
                                         address: el.address,
                                         name: el.name
                                     }
                                 }
-                            })} isClearable onChange={handleChosePoint} components={{ Placeholder }} placeholder="Начните вводить город..." styles={customStyles} options={points || []}
-                                getOptionLabel={(option) => option.address}
-                                getOptionValue={(option) => option.name} />
+                            })} isClearable onChange={handleChosePoint} components={{ Placeholder }} placeholder="Начните вводить город..." styles={customStyles} options={points || []}          
+                            getOptionLabel={(option) => option.address}
+                            getOptionValue={(option) => option.name} />
                         </div>
                     </div>
                 </form>
@@ -95,7 +95,7 @@ const ChoseCity = ({ changeActiveBtn, changePage }: IChoseCityProps) => {
             <div className="order-city">
                 <p>Выбрать на карте:</p>
                 <div className="order__city__img">
-                    <Map query={cityPlace?.city} place={cityPlace?.address} />
+                    <Map query={cityPlace?.city?.name} place={`${cityPlace?.address?.name}, ${cityPlace?.address?.address}`} />
                 </div>
             </div>
         </>

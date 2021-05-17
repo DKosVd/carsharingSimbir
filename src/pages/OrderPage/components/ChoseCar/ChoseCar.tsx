@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import s from './chosecar.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { ChoseCarAction, ClearDLC } from '../../../../store/actions/order/order';
+import { ChangeActiveBtn, ChoseCarAction, ClearDLC } from '../../../../store/actions/order/order';
 import { FetchCarsAction, FetchCategoryAction, SetTypeAction } from '../../../../store/actions/cars/cars';
 import { RootState } from '../../../../store/store';
 import { ICar } from '../../../../store/reducers/cars/contracts/state';
@@ -37,6 +37,7 @@ const ChoseCar = ({ changeActiveBtn, changePage }: IChoseCarProps) => {
 
     const setActiveCar = (id: string, el: ICar) => {
         dispatch(ChoseCarAction(el))
+        dispatch(ChangeActiveBtn({active: 2, isDisabled: true}))
         dispatch(ClearDLC())
         changePage(2)
         setAuto(id)

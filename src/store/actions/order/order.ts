@@ -1,6 +1,6 @@
 import { Action } from 'redux';
 import { ICar } from '../../reducers/cars/contracts/state';
-import { choseCity, IRate } from '../../reducers/order/contracts/state';
+import { choseCity, IDlcRate, IRate } from '../../reducers/order/contracts/state';
 
 export enum OrderActionType {
     CHOSE_CITY = 'order/CHOSE_CITY',
@@ -10,22 +10,50 @@ export enum OrderActionType {
     SET_RATE = 'order/SET_RATE',
     CHANGE_ACTIVE_BTN = 'order/CHANGE_ACTIVE_BTN',
     CLEAR_CITY_PLACE = 'order/CLEAR_CITY_PLACE',
+    CLEAR_ADDRESS_PLACE = 'order/CLEAR_ADDRESS_PLACE',
     CHANGE_STEP = 'order/CHANGE_STEP',
     CHANGE_ACTIVE_STEP = 'order/CHANGE_ACTIVE_STEP',
     CHOSE_COLOR = 'order/CHOSE_COLOR',
     CHOSE_DATE_FROM = 'order/CHOSE_DATE_FROM',
     CHOSE_DATE_TO = 'order/CHOSE_DATE_TO',
     CHOSE_RATE = 'order/CHOSE_RATE',
-    CHOSE_FULL_OIL = 'order/CHOSE_FULL_OIL',
-    CHOSE_BABY_SEAT = 'order/CHOSE_BABY_SEAT',
-    CHOSE_RIGHT_DRIVE = 'order/CHOSE_RIGHT_DRIVE',
+    CHOSE_DLC_RATES = 'order/CHOSE_DLC_RATES',
     CLEAR_CARS = 'order/CLEAR_CARS',
-    CLEAR_DLC = 'order/CLEAR_DLC'
+    CLEAR_DLC = 'order/CLEAR_DLC',
+    ACCEPT_ORDER = 'order/ACCEPT_ORDER',
+    SET_NUMBER_ORDER = 'order/SET_NUMBER_ORDER',
+    FETCH_ORDER_BY_ID = 'order/FETCH_ORDER_BY_ID',
+    SET_PRICE = 'order/SET_PRICE',
 }
+
+export interface ISetPrice extends Action<OrderActionType> {
+    type: OrderActionType.SET_PRICE,
+    payload: number;
+}
+
 
 export interface IChoseCar extends Action<OrderActionType> {
     type: OrderActionType.CHOSE_CAR,
     payload: ICar;
+}
+
+export interface IFetchOrderByIdA extends Action<OrderActionType> {
+    type: OrderActionType.FETCH_ORDER_BY_ID,
+    payload: string
+}
+
+export interface ISetNumberOrder extends Action<OrderActionType> {
+    type: OrderActionType.SET_NUMBER_ORDER,
+    payload: string;
+}
+
+export interface IAcceptOrder extends Action<OrderActionType> {
+    type: OrderActionType.ACCEPT_ORDER,
+}
+
+export interface IChoseDlcRates extends Action<OrderActionType> {
+    type: OrderActionType.CHOSE_DLC_RATES,
+    payload: IDlcRate
 }
 
 export interface IChoseDateFrom extends Action<OrderActionType> {
@@ -65,7 +93,6 @@ export interface IClearDLC extends Action<OrderActionType> {
     type: OrderActionType.CLEAR_DLC,
 }
 
-
 export interface IChangeActiveStep extends Action<OrderActionType> {
     type: OrderActionType.CHANGE_ACTIVE_STEP,
     payload: number;
@@ -96,8 +123,21 @@ export interface IClearCityPlace extends Action<OrderActionType> {
     type: OrderActionType.CLEAR_CITY_PLACE
 }
 
+export interface IClearAddresPlace extends Action<OrderActionType> {
+    type: OrderActionType.CLEAR_ADDRESS_PLACE
+}
+
 export const ClearCityPlace = (): IClearCityPlace => ({
     type: OrderActionType.CLEAR_CITY_PLACE
+})
+
+export const SetNumberOrderAction = (payload: string) : ISetNumberOrder => ({
+    type: OrderActionType.SET_NUMBER_ORDER,
+    payload
+})
+
+export const ClearAddresPlace = (): IClearAddresPlace => ({
+    type: OrderActionType.CLEAR_ADDRESS_PLACE
 })
 
 export const ClearCars = (): IClearCars => ({
@@ -123,6 +163,11 @@ export const ChoseDateTo = (payload: Date | [Date, Date] | null ): IChoseDateTo 
     payload
 })
 
+export const FetchOrderByIdAction = (payload: string): IFetchOrderByIdA => ({
+    type: OrderActionType.FETCH_ORDER_BY_ID,
+    payload
+})
+
 export const ClearDLC = (): IClearDLC => ({
     type: OrderActionType.CLEAR_DLC
 })
@@ -136,6 +181,12 @@ export const ChangeStepAction = (payload: number): IChangeStep => ({
     type: OrderActionType.CHANGE_STEP,
     payload
 })
+
+export const SetPriceAction = (payload: number) :ISetPrice => ({
+    type: OrderActionType.SET_PRICE,
+    payload
+})
+
 
 export const ChangeActiveStepAction = (payload: number): IChangeActiveStep => ({
     type: OrderActionType.CHANGE_ACTIVE_STEP,
@@ -167,6 +218,15 @@ export const SetRateAction = (payload: IRate[]): ISetRateAction => ({
     payload
 })
 
+export const ChoseDlcRatesAction = (payload: IDlcRate):IChoseDlcRates => ({
+    type: OrderActionType.CHOSE_DLC_RATES,
+    payload
+}) 
+
+export const AcceptAction = ():IAcceptOrder => ({
+    type: OrderActionType.ACCEPT_ORDER,
+})
+
 
 export type OrderAction = IChoseCar |
     IChosePlace |
@@ -182,4 +242,10 @@ export type OrderAction = IChoseCar |
     ISetRateAction |
     IChoseDateFrom |
     IChoseDateTo | 
-    IChoseRateAction;
+    IChoseRateAction |
+    IChoseDlcRates |
+    IAcceptOrder |
+    IClearAddresPlace | 
+    ISetNumberOrder | 
+    IFetchOrderByIdA | 
+    ISetPrice;

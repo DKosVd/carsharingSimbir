@@ -6,18 +6,18 @@ import s from './total.module.css'
 
 interface ITotalProps {
     changeActiveBtn: (value: boolean) => void;
-    changePage: (p: number) => void;
-    result?: boolean;
 }
 
-
-const Total = ({ changeActiveBtn, changePage, result }: ITotalProps) => {
-
+const Total = ({ changeActiveBtn }: ITotalProps) => {
+    const result = useSelector((state: RootState) => state.status.choseStatus?.id);
     const car = useSelector((state: RootState) => state.order.choseCar);
+    const dlc = useSelector((state: RootState) => state.order.choseDLC);
 
     useEffect(() => {
         changeActiveBtn(false)
     }, [])
+
+    
 
     if (!car) {
         return null
@@ -28,7 +28,7 @@ const Total = ({ changeActiveBtn, changePage, result }: ITotalProps) => {
             <div className={s.total__main}>
                 <div className={s.total__order}>
                     <div className={s.total__order_info}>
-                        {result && <h1 className={s.total__order__result}>Ваш заказ подтверждён</h1>}
+                        {result === '5e26a191099b810b946c5d89' && <h1 className={s.total__order__result}>Ваш заказ подтверждён</h1>}
                         <h4 className={`${s.total__order_info_title}`}>{car.name}</h4>
                         {car?.number && <span className={`${s.total__order__info_number} ${s.total__order_info_elem}`}>
                             <span className={s.total__order__info__number_mr}> {car.number[0]} </span>
@@ -36,7 +36,7 @@ const Total = ({ changeActiveBtn, changePage, result }: ITotalProps) => {
                             <span className={s.total__order__info__number_mr}>{car.number.slice(4, 6)}</span>
                             <span>{car.number.slice(6)}</span>
                         </span>}
-                        <span className={s.total__order_info_elem}><b>Топливо </b>&nbsp; 100%</span>
+                        {(dlc?.dlc?.fullOil || car.tank) && <span className={s.total__order_info_elem}><b>Топливо </b>&nbsp; {dlc?.dlc?.fullOil ? `100`: car.tank}%</span>}
                         <span className={s.total__order_info_elem}><b>Доступна с </b>&nbsp; 12.06.2019 12:00</span>
                     </div>
                     <div className={s.total__order_img}>

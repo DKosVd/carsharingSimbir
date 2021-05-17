@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
 
 export default function Header() {
-    const city = useSelector(( state: RootState) => state.order.choseCity?.city)
+    const city = useSelector(( state: RootState) => state.order.choseCity?.city?.name)
     return (
         <header className="header">
             <div className="header__content">

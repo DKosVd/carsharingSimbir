@@ -6,6 +6,7 @@ import { CityState } from './reducers/city/contracts/state';
 import { LangState } from './reducers/lang/contracts/state';
 import { OrderState } from './reducers/order/contracts/state';
 import { PointState } from './reducers/point/contracts/state';
+import { StatusState } from './reducers/status/contracts/state';
 import rootSaga from './sagas';
 
 declare global {
@@ -22,7 +23,8 @@ export interface RootState {
     order: OrderState,
     city: CityState,
     point: PointState,
-    cars: CarsState
+    cars: CarsState,
+    status: StatusState
 }
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
