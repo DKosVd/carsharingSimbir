@@ -1,7 +1,7 @@
 .sidebar {
     flex: 1 1 64px;
     min-width: 64px;
-    max-width: 85px;
+    max-width: 64px;
     background-color: var(--main-black);
 }
 

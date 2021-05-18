@@ -9,11 +9,16 @@
   --gray-light: rgba(238, 238, 238, 1);
 }
 
-*{
-  box-sizing:border-box;
+* {
+  box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
 }
 
@@ -39,8 +44,7 @@ h1, h2, h3, h4, h5, h6 {
   min-width: 224px;
   border-bottom: 1px solid var(--gray-bold);
   background: none;
-} 
- 
+}
 
 .container {
   margin: 0 auto;
@@ -67,13 +71,13 @@ button:focus {
   opacity: 0;
 }
 
-.custom-checkbox+label {
+.custom-checkbox + label {
   display: inline-flex;
   align-items: center;
   user-select: none;
 }
-.custom-checkbox+label::before {
-  content: '';
+.custom-checkbox + label::before {
+  content: "";
   display: inline-block;
   width: 12px;
   height: 12px;
@@ -83,15 +87,13 @@ button:focus {
   margin-right: 8px;
   background-repeat: no-repeat;
   background-position: center center;
-
 }
 
 .custom-checkbox:hover + label {
   cursor: pointer;
 }
 
-
-.custom-checkbox:checked+label::before {
+.custom-checkbox:checked + label::before {
   content: "\2714";
   font-size: 20px;
   line-height: 8px;
@@ -104,15 +106,14 @@ button:focus {
   opacity: 0;
 }
 
-
-.custom-radio+label {
+.custom-radio + label {
   display: inline-flex;
   align-items: center;
   user-select: none;
 }
 
-.custom-radio+label::before {
-  content: '';
+.custom-radio + label::before {
+  content: "";
   display: inline-block;
   width: 12px;
   height: 12px;
@@ -126,13 +127,12 @@ button:focus {
   background-size: 50% 50%;
 }
 
-
-.custom-radio:not(:disabled):not(:checked)+label:hover::before {
+.custom-radio:not(:disabled):not(:checked) + label:hover::before {
   border-color: var(--main-color);
   cursor: pointer;
 }
 
-.custom-radio:checked+label::before {
+.custom-radio:checked + label::before {
   border-color: var(--main-color);
   background-color: var(--main-color);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
@@ -150,11 +150,11 @@ button:focus {
     align-self: flex-start;
     margin: 0px 0px 8px 16px;
   }
-} 
+}
 
 @media (max-width: 767.88px) {
   .main-header__menu {
-      display: block;
+    display: block;
   }
 }
 
@@ -171,7 +171,7 @@ button:focus {
   color: var(--gray-bold);
 }
 
-.order__form_elem > input:checked + label{
+.order__form_elem > input:checked + label {
   color: var(--main-black);
 }
 
@@ -189,11 +189,10 @@ ul {
   list-style: none;
 }
 
-
 .btn {
   color: var(--gray-light);
   font-weight: 500;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-size: 18px;
   line-height: 22px;
@@ -201,11 +200,19 @@ ul {
 
 .btn:hover {
   cursor: pointer;
-  background: linear-gradient(90deg, hsla(148, 87%, 31%, 1) 2.61% , hsla(158, 97%, 22%, 1) 112.6%);
+  background: linear-gradient(
+    90deg,
+    hsla(148, 87%, 31%, 1) 2.61%,
+    hsla(158, 97%, 22%, 1) 112.6%
+  );
 }
 
 .btn:active {
-  background: linear-gradient(90deg, hsla(148, 87%, 21%, 1) 2.61% , hsla(158, 97%, 12%, 1) 112.6%);
+  background: linear-gradient(
+    90deg,
+    hsla(148, 87%, 21%, 1) 2.61%,
+    hsla(158, 97%, 12%, 1) 112.6%
+  );
 }
 
 .btn:disabled,
@@ -213,19 +220,17 @@ ul {
   background: var(--gray-light);
 }
 
-
 .btn-detail {
   width: 164px;
   height: 48px;
   border-radius: 4px;
 }
 
-
 .btn-book {
   width: 250px;
   height: 48px;
   border-radius: 8px;
-  background: linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%);
+  background: linear-gradient(90deg, #0ec261 2.61%, #039f67 112.6%);
   color: white;
 }
 
@@ -234,51 +239,97 @@ ul {
 }
 
 .btn-detail__green {
-  background: linear-gradient(90deg, hsla(169, 58%, 18%, 1) 0%, hsla(128, 83%, 26%, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    hsla(169, 58%, 18%, 1) 0%,
+    hsla(128, 83%, 26%, 1) 100%
+  );
 }
 
 .btn-detail__green:hover {
-  background: linear-gradient(90deg, hsla(169, 58%, 8%, 1) 0%, hsla(128, 83%, 16%, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    hsla(169, 58%, 8%, 1) 0%,
+    hsla(128, 83%, 16%, 1) 100%
+  );
 }
 
 .btn-detail__green:active {
-  background: linear-gradient(90deg, hsla(169, 56%, 0%, 1) 0%, hsla(128, 83%, 6%, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    hsla(169, 56%, 0%, 1) 0%,
+    hsla(128, 83%, 6%, 1) 100%
+  );
 }
 
-
 .btn-detail__turquoise {
-  background: linear-gradient(90deg, hsla(216, 58%, 18%, 1) 0%, hsla(169, 83%, 26%, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    hsla(216, 58%, 18%, 1) 0%,
+    hsla(169, 83%, 26%, 1) 100%
+  );
 }
 
 .btn-detail__turquoise:hover {
-    background: linear-gradient(90deg,  hsla(216, 58%, 8%, 1) 0%, hsla(169, 83%, 16%, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    hsla(216, 58%, 8%, 1) 0%,
+    hsla(169, 83%, 16%, 1) 100%
+  );
 }
 
 .btn-detail__turquoise:active {
-  background: linear-gradient(90deg,  hsla(216, 56%, 0%, 1) 0%, hsla(169, 83%, 6%, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    hsla(216, 56%, 0%, 1) 0%,
+    hsla(169, 83%, 6%, 1) 100%
+  );
 }
 
 .btn-detail__red {
-  background: linear-gradient(90deg, hsla(32, 58%, 18%, 1) 0%, hsla(335, 83%, 26%, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    hsla(32, 58%, 18%, 1) 0%,
+    hsla(335, 83%, 26%, 1) 100%
+  );
 }
 
 .btn-detail__red:hover {
-  background: linear-gradient(90deg, hsla(32, 58%, 8%, 1) 0%, hsla(335, 83%, 16%, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    hsla(32, 58%, 8%, 1) 0%,
+    hsla(335, 83%, 16%, 1) 100%
+  );
 }
 
 .btn-detail__red:active {
-  background: linear-gradient(90deg, hsla(32, 56%, 0%, 1) 0%, hsla(335, 83%, 6%, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    hsla(32, 56%, 0%, 1) 0%,
+    hsla(335, 83%, 6%, 1) 100%
+  );
 }
 
 .btn-detail__purple {
-  background: linear-gradient(90deg, hsla(263, 58%, 18%, 1) 0%, hsla(295, 83%, 26%, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    hsla(263, 58%, 18%, 1) 0%,
+    hsla(295, 83%, 26%, 1) 100%
+  );
 }
 
 .btn-detail__purple:hover {
-  background: linear-gradient(90deg, hsla(263, 58%, 8%, 1) 0%, hsla(295, 83%, 16%, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    hsla(263, 58%, 8%, 1) 0%,
+    hsla(295, 83%, 16%, 1) 100%
+  );
 }
 
 .btn-detail__purple:active {
-  background: linear-gradient(90deg, hsla(263, 56%, 0%, 1) 0%, hsla(295, 83%, 6%, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    hsla(263, 56%, 0%, 1) 0%,
+    hsla(295, 83%, 6%, 1) 100%
+  );
 }
-

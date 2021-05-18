@@ -1,7 +1,6 @@
 import { Marker, Popup, useMap } from 'react-leaflet';
 import { LatLngExpression } from 'leaflet';
 import { icon } from './Icon';
-import { useEffect } from 'react';
 
 interface ILocationMarkerProps {
   position: LatLngExpression,

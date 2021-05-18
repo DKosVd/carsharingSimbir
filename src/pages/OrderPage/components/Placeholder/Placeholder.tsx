@@ -1,7 +1,7 @@
-import { components } from 'react-select';
+import { components } from "react-select";
 
-const Placeholder = (props : any) => {
-    return <components.Placeholder {...props}/>
-}
+const Placeholder = (props: any) => {
+  return <components.Placeholder {...props} />;
+};
 
 export default Placeholder;

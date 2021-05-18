@@ -1,70 +1,85 @@
 .order__dls__elems {
-    min-width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .order__dls__row {
-    display: flex;
-    max-width: 248px;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0px 0px 38px 0px;
+  display: flex;
+  max-width: 248px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 0px 38px 0px;
 }
 
 .order__dls__lp {
-    padding: 0px 0px 0px 6px;
+  padding: 0px 0px 0px 6px;
 }
 
 .order__dls__mb {
-    margin: 0px 0px 14px 0px;
+  margin: 0px 0px 14px 0px;
 }
 
 .order__dls__row > label {
-    flex: 1 1;
-    display: flex;
-    justify-content: flex-end;
-    margin: 0px 8px 0px 0px;
+  flex: 1 1;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0px 8px 0px 0px;
 }
 
 .order__dls__row {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 16px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
 }
 
 .order__dls__row_bl {
-    display: block;
+  display: block;
 }
 
 .order__dls_rate {
-    margin: 0px 0px 12px 0px;
+  margin: 0px 0px 12px 0px;
 }
 
 .order__dls__elems__title {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 16px;
-    color: var(--main-black);
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--main-black);
+}
+
+.order__dls__row__color {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0px 0px 38px 0px;
 }
 
 .order__dls__elems__title_mb {
-    margin: 0px 0px 20px 0px;
+  margin: 0px 0px 20px 0px;
 }
 .order__dls__date {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 300;
-    padding: 0px 0px 0px 8px;
-    font-size: 14px;
-    line-height: 16px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  padding: 0px 0px 0px 8px;
+  font-size: 14px;
+  line-height: 16px;
 }
 
 .order__dls__date.order__dls__lp {
-    padding: 0px 0px 0px 6px;
+  padding: 0px 0px 0px 6px;
+}
+
+.order__dls_rate:last-child {
+  margin: 0px;
+}
+
+.order__form__elem_color {
+  margin: 0px 16px 0px 0px;
 }

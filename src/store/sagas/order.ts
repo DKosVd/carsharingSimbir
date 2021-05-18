@@ -1,7 +1,7 @@
 import { call, put } from "redux-saga/effects";
 import * as Eff from 'redux-saga/effects'
 import { orderApi } from "../../services/orderApi";
-import { ChoseCarAction, ChoseCityAction, ChoseColorAction, ChoseDateFrom, ChoseDateTo, ChoseDlcRatesAction, ChosePlaceAction, ChoseRateAction, IAcceptOrder, IFetchOrderByIdA, OrderActionType, SetNumberOrderAction, SetPriceAction, SetRateAction } from "../actions/order/order";
+import { ChoseCarAction, ChoseCityAction, ChoseColorAction, ChoseDateFrom, ChoseDateTo, ChoseDlcRatesAction, ChosePlaceAction, ChoseRateAction, IFetchOrderByIdA, OrderActionType, SetNumberOrderAction, SetPriceAction, SetRateAction } from "../actions/order/order";
 import { IDlcRate, IRate, OrderState, PostState } from "../reducers/order/contracts/state";
 import { RootState } from "../store";
 import { StatusState } from "../reducers/status/contracts/state";
