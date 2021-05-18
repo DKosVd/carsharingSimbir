@@ -64,7 +64,7 @@ const Order = ({ active, changePage, showPopup }: IOrderProps) => {
           <div className={s.order__detail}>
             <span className={s.order__detail__name}>Длительность аренды</span>
             <span className={s.order__detail__value}>{`${
-              date[0] ? date[0] + "д" : ""
+              date[0] ? date[0] + "д " : ""
             }${isNaN(date[1]) ? "" : date[1] + "ч"}`}</span>
           </div>
         )}

@@ -229,29 +229,42 @@ const ChoseDls = ({ changeActiveBtn, changePage }: IChoseDlsProps) => {
               Доп услуги
             </span>
             <div className={`${s.order__dls__row} ${s.order__dls__row_bl}`}>
-              {dlcRates.map((el) => {
-                return (
-                  <div className={`order__form_elem ${s.order__dls_rate}`}>
-                    <input
-                      onChange={() => handleChoseDlcRates(el)}
-                      className="custom-checkbox"
-                      checked={
-                        DLC?.dlc?.fullOil?.isPresent ||
-                        false ||
-                        DLC?.dlc?.babySeat?.isPresent ||
-                        false ||
-                        DLC?.dlc?.rightDrive?.isPresent ||
-                        false
-                      }
-                      id={`${el.name}`}
-                      type="checkbox"
-                    />
-                    <label htmlFor={`${el.name}`}>
-                      {el.name}, {el.price}р
-                    </label>
-                  </div>
-                );
-              })}
+              <div className={`order__form_elem ${s.order__dls_rate}`}>
+                <input
+                  onChange={() => handleChoseDlcRates(dlcRates[0])}
+                  className="custom-checkbox"
+                  checked={DLC?.dlc?.fullOil?.isPresent || false}
+                  id={`${dlcRates[0].name}`}
+                  type="checkbox"
+                />
+                <label htmlFor={`${dlcRates[0].name}`}>
+                  {dlcRates[0].name}, {dlcRates[0].price}р
+                </label>
+              </div>
+              <div className={`order__form_elem ${s.order__dls_rate}`}>
+                <input
+                  onChange={() => handleChoseDlcRates(dlcRates[1])}
+                  className="custom-checkbox"
+                  checked={DLC?.dlc?.babySeat?.isPresent || false}
+                  id={`${dlcRates[1].name}`}
+                  type="checkbox"
+                />
+                <label htmlFor={`${dlcRates[1].name}`}>
+                  {dlcRates[1].name}, {dlcRates[1].price}р
+                </label>
+              </div>
+              <div className={`order__form_elem ${s.order__dls_rate}`}>
+                <input
+                  onChange={() => handleChoseDlcRates(dlcRates[2])}
+                  className="custom-checkbox"
+                  checked={DLC?.dlc?.rightDrive?.isPresent || false}
+                  id={`${dlcRates[2].name}`}
+                  type="checkbox"
+                />
+                <label htmlFor={`${dlcRates[2].name}`}>
+                  {dlcRates[2].name}, {dlcRates[2].price}р
+                </label>
+              </div>
             </div>
           </div>
         </form>
