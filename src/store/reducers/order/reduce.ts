@@ -91,8 +91,8 @@ export const orderReducer = (state = initialState, action: OrderAction) => {
 
       let result = typeRateAndPrice(
         date,
-        action.payload.rateTypeId.name,
-        action.payload.price,
+        action?.payload?.rateTypeId?.name,
+        action?.payload?.price,
         price
       );
       if (date.length) {

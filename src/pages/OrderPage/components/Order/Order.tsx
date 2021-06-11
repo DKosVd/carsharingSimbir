@@ -72,7 +72,7 @@ const Order = ({ active, changePage, showPopup }: IOrderProps) => {
           <div className={s.order__detail}>
             <span className={s.order__detail__name}>Тариф</span>
             <span className={s.order__detail__value}>
-              {dlc.choseRate.rateTypeId.name}
+              {dlc?.choseRate?.rateTypeId?.name}
             </span>
           </div>
         )}

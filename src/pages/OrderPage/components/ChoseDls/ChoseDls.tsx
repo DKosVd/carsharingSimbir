@@ -33,7 +33,6 @@ const ChoseDls = ({ changeActiveBtn, changePage }: IChoseDlsProps) => {
   const dlcRates = useSelector((state: RootState) => state.order.dlcrates);
   const DLC = useSelector((state: RootState) => state.order.choseDLC);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(FetchRateAction());
     dispatch(FetchStatusAction());
@@ -41,7 +40,7 @@ const ChoseDls = ({ changeActiveBtn, changePage }: IChoseDlsProps) => {
 
   const onChangeHandle = (rate: IRate) => {
     if (
-      rate.rateTypeId.id === "5f622f029d3a610b850fd820" &&
+      rate?.rateTypeId?.id === "5f622f029d3a610b850fd820" &&
       DLC?.startDate &&
       DLC?.returnDate &&
       diffDays(DLC.returnDate as Date, DLC.startDate as Date) < 7
@@ -216,8 +215,8 @@ const ChoseDls = ({ changeActiveBtn, changePage }: IChoseDlsProps) => {
                         value={rate.id}
                       />
                       <label htmlFor={rate.id}>
-                        {rate.rateTypeId.name}, {rate.price}₽/
-                        {rate.rateTypeId.unit}
+                        {rate?.rateTypeId?.name}, {rate?.price}₽/
+                        {rate?.rateTypeId?.unit}
                       </label>
                     </div>
                   );
